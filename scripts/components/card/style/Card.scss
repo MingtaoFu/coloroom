@@ -1,0 +1,29 @@
+.card {
+  width: 250px;
+  height: 228px;
+  margin: 10px;
+  padding: 10px 10px 0;
+  background-color: #fff;
+
+  &>header{
+    border-bottom: 1px solid #dde5e5;
+  }
+
+  &>.body{
+    section{
+      display: inline-block;
+      height: 102px;
+    }
+
+    &>.text{
+      text-indent: 2em;
+      color: #999;
+    }
+  }
+
+  &>footer{
+    height: 30px;
+    border-top: 1px solid #dde5e5;
+    box-sizing: border-box;
+  }
+}
