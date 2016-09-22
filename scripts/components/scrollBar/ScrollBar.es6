@@ -26,8 +26,16 @@ class ScrollBar{
     this.thumbHeight = obj.getScrollHeight() * this.trackHeight;
     var thumb = this.element.querySelector(".scroll-bar-thumb");
     this.canScrollHeight = this.trackHeight - this.thumbHeight;
+    this.canScrollHeight = this.canScrollHeight < 0 ? 0: this.canScrollHeight;
     thumb.style.height = this.thumbHeight + "px";
     thumb.style.top = this.scrollTop + "px";
+  }
+  updateHeight() {
+    var thumb = this.element.querySelector(".scroll-bar-thumb");
+    this.thumbHeight = this.view.getScrollHeight() * this.trackHeight;
+    this.canScrollHeight = this.trackHeight - this.thumbHeight;
+    this.canScrollHeight = this.canScrollHeight < 0 ? 0: this.canScrollHeight;
+    thumb.style.height = this.thumbHeight + "px";
   }
   updateView() {
     var thumb = this.element.querySelector(".scroll-bar-thumb");

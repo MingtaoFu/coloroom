@@ -61,10 +61,44 @@ window.onload = function () {
     time: "08.05",
     text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
   });
+  var card8 = new Card({
+    title: "浙江温州江南皮革厂倒闭了",
+    color: ["#f16170", "#f9c450", "#2b6a9f", "#7da54f"],
+    time: "08.05",
+    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
+  });
+  var card9 = new Card({
+    title: "浙江温州江南皮革厂倒闭了",
+    color: ["#f16170", "#f9c450", "#2b6a9f", "#7da54f"],
+    time: "08.05",
+    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
+  });
+  var card10 = new Card({
+    title: "浙江温州江南皮革厂倒闭了",
+    color: ["#f16170", "#f9c450", "#2b6a9f", "#7da54f"],
+    time: "08.05",
+    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
+  });
 
   scrollObject.addItems([
-    card, card2, card3, card4, card5, card6, card7
+    card, card2, card3, card4
   ]);
+
+  setTimeout(function () {
+    scrollObject.addItems([
+      card5, card6, card7
+    ]);
+  }, 1000);
+
+  setTimeout(function () {
+    scrollObject.addItems([
+      card8, card9, card10
+    ]);
+  }, 2000);
+
+  setTimeout(function () {
+    scrollObject.removeItem(6);
+  }, 3000);
 
   function xxxx() {
 

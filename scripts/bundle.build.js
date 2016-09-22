@@ -107,10 +107,44 @@
 	    time: "08.05",
 	    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
 	  });
+	  var card8 = new Card({
+	    title: "浙江温州江南皮革厂倒闭了",
+	    color: ["#f16170", "#f9c450", "#2b6a9f", "#7da54f"],
+	    time: "08.05",
+	    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
+	  });
+	  var card9 = new Card({
+	    title: "浙江温州江南皮革厂倒闭了",
+	    color: ["#f16170", "#f9c450", "#2b6a9f", "#7da54f"],
+	    time: "08.05",
+	    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
+	  });
+	  var card10 = new Card({
+	    title: "浙江温州江南皮革厂倒闭了",
+	    color: ["#f16170", "#f9c450", "#2b6a9f", "#7da54f"],
+	    time: "08.05",
+	    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
+	  });
 
 	  scrollObject.addItems([
-	    card, card2, card3, card4, card5, card6, card7
+	    card, card2, card3, card4
 	  ]);
+
+	  setTimeout(function () {
+	    scrollObject.addItems([
+	      card5, card6, card7
+	    ]);
+	  }, 1000);
+
+	  setTimeout(function () {
+	    scrollObject.addItems([
+	      card8, card9, card10
+	    ]);
+	  }, 2000);
+
+	  setTimeout(function () {
+	    scrollObject.removeItem(6);
+	  }, 3000);
 
 	  function xxxx() {
 
@@ -716,8 +750,18 @@
 	      this.thumbHeight = obj.getScrollHeight() * this.trackHeight;
 	      var thumb = this.element.querySelector(".scroll-bar-thumb");
 	      this.canScrollHeight = this.trackHeight - this.thumbHeight;
+	      this.canScrollHeight = this.canScrollHeight < 0 ? 0 : this.canScrollHeight;
 	      thumb.style.height = this.thumbHeight + "px";
 	      thumb.style.top = this.scrollTop + "px";
+	    }
+	  }, {
+	    key: 'updateHeight',
+	    value: function updateHeight() {
+	      var thumb = this.element.querySelector(".scroll-bar-thumb");
+	      this.thumbHeight = this.view.getScrollHeight() * this.trackHeight;
+	      this.canScrollHeight = this.trackHeight - this.thumbHeight;
+	      this.canScrollHeight = this.canScrollHeight < 0 ? 0 : this.canScrollHeight;
+	      thumb.style.height = this.thumbHeight + "px";
 	    }
 	  }, {
 	    key: 'updateView',
@@ -881,6 +925,8 @@
 	    element.className = "scroll-obj-container";
 	    this.element = element;
 	    this.updateHeight();
+
+	    this.arr = [];
 	  }
 
 	  _createClass(ScrollObject, [{
@@ -901,7 +947,24 @@
 	      var scrollObj = this.element.querySelector(".scroll-obj");
 	      for (var i = 0; i < arr.length; i++) {
 	        scrollObj.appendChild(arr[i].element);
+	        this.arr.push(arr[i]);
 	      }
+
+	      var that = this;
+	      setTimeout(function () {
+	        that.bar.updateHeight();
+	      }, 0);
+	    }
+	  }, {
+	    key: "removeItem",
+	    value: function removeItem(index) {
+	      var scrollObj = this.element.querySelector(".scroll-obj");
+	      scrollObj.removeChild(this.arr[index].element);
+
+	      var that = this;
+	      setTimeout(function () {
+	        that.bar.updateHeight();
+	      }, 0);
 	    }
 	  }, {
 	    key: "getScrollHeight",

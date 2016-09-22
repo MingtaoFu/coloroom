@@ -8,6 +8,8 @@ class ScrollObject{
     element.className = "scroll-obj-container";
     this.element = element;
     this.updateHeight();
+
+    this.arr = [];
   }
   updateHeight() {
     var element = this.element;
@@ -23,7 +25,22 @@ class ScrollObject{
     var scrollObj = this.element.querySelector(".scroll-obj");
     for(let i = 0; i < arr.length; i++) {
       scrollObj.appendChild(arr[i].element);
+      this.arr.push(arr[i]);
     }
+
+    var that = this;
+    setTimeout(function () {
+      that.bar.updateHeight();
+    }, 0);
+  }
+  removeItem(index) {
+    var scrollObj = this.element.querySelector(".scroll-obj");
+    scrollObj.removeChild(this.arr[index].element);
+
+    var that = this;
+    setTimeout(function () {
+      that.bar.updateHeight();
+    }, 0);
   }
   getScrollHeight() {
     var scrollObj = this.element.querySelector(".scroll-obj");
