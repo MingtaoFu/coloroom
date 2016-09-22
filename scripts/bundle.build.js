@@ -56,6 +56,7 @@
 	var Card = __webpack_require__(7);
 	var ScrollBar = __webpack_require__(14);
 	var ScrollObject = __webpack_require__(17);
+	__webpack_require__(18);
 
 
 	window.onload = function () {
@@ -65,86 +66,23 @@
 	  body.appendChild(scrollBar.element);
 	  body.appendChild(scrollObject.element);
 
-	  var card = new Card({
-	    title: "绅士",
-	    color: ["#cceaf4", "#f6f3e4"],
-	    time: "06.23",
-	    text: "我能送你回家吗？可能外面要下雨啦。我能给你个拥抱，像朋友一样可以吗？"
-	  });
-	  var card2 = new Card({
-	    title: "末班车",
-	    color: ["#a5966b", "#f06348", "#003c51"],
-	    time: "12.05",
-	    text: "空着手，犹如你来的时候。紧皱的额头，终于再没有苦痛。"
-	  });
-	  var card3 = new Card({
-	    title: "浙江温州江南皮革厂倒闭了",
-	    color: ["#f16170", "#f9c450", "#2b6a9f", "#7da54f"],
-	    time: "08.05",
-	    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
-	  });
-	  var card4 = new Card({
-	    title: "浙江温州江南皮革厂倒闭了",
-	    color: ["#f16170", "#f9c450", "#2b6a9f", "#7da54f"],
-	    time: "08.05",
-	    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
-	  });
-	  var card5 = new Card({
-	    title: "浙江温州江南皮革厂倒闭了",
-	    color: ["#f16170", "#f9c450", "#2b6a9f", "#7da54f"],
-	    time: "08.05",
-	    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
-	  });
-	  var card6 = new Card({
-	    title: "浙江温州江南皮革厂倒闭了",
-	    color: ["#f16170", "#f9c450", "#2b6a9f", "#7da54f"],
-	    time: "08.05",
-	    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
-	  });
-	  var card7 = new Card({
-	    title: "浙江温州江南皮革厂倒闭了",
-	    color: ["#f16170", "#f9c450", "#2b6a9f", "#7da54f"],
-	    time: "08.05",
-	    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
-	  });
-	  var card8 = new Card({
-	    title: "浙江温州江南皮革厂倒闭了",
-	    color: ["#f16170", "#f9c450", "#2b6a9f", "#7da54f"],
-	    time: "08.05",
-	    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
-	  });
-	  var card9 = new Card({
-	    title: "浙江温州江南皮革厂倒闭了",
-	    color: ["#f16170", "#f9c450", "#2b6a9f", "#7da54f"],
-	    time: "08.05",
-	    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
-	  });
-	  var card10 = new Card({
-	    title: "浙江温州江南皮革厂倒闭了",
-	    color: ["#f16170", "#f9c450", "#2b6a9f", "#7da54f"],
-	    time: "08.05",
-	    text: "王八蛋黄鹤老板吃喝嫖赌，欠下了3.5个亿，带着他的小姨子跑了。"
-	  });
+	  utils.getJson("/items", {}, function (data) {
+	    var param = {
+	      title: data.title,
+	      time: "01.25",
+	      text: data.description,
+	      image: data.image,
+	      color: []
+	    };
 
-	  scrollObject.addItems([
-	    card, card2, card3, card4
-	  ]);
+	    for(var i = 0; i < data.colors.length; i++) {
+	      param.color.push("#" + data.colors[i].hex_value);
+	    }
 
-	  setTimeout(function () {
-	    scrollObject.addItems([
-	      card5, card6, card7
-	    ]);
-	  }, 1000);
+	    var card = new Card(param);
 
-	  setTimeout(function () {
-	    scrollObject.addItems([
-	      card8, card9, card10
-	    ]);
-	  }, 2000);
-
-	  setTimeout(function () {
-	    scrollObject.removeItem(6);
-	  }, 3000);
+	    scrollObject.addItems([card])
+	  });
 
 	  function xxxx() {
 
@@ -574,7 +512,9 @@
 	        </header>\
 	        <div class="body">\
 	          <div>\
-	            <section class="left"></section\
+	            <section class="left">\
+	              <img src="{{image}}">\
+	            </section\
 	            ><section class="right">\
 	              ``color``\
 	            </section>\
@@ -970,7 +910,9 @@
 	    key: "getScrollHeight",
 	    value: function getScrollHeight() {
 	      var scrollObj = this.element.querySelector(".scroll-obj");
-	      return this.element.offsetHeight / scrollObj.offsetHeight;
+	      var value = this.element.offsetHeight / scrollObj.offsetHeight;
+	      value = value > 1 ? 1 : value;
+	      return value;
 	    }
 	  }, {
 	    key: "updateView",
@@ -993,6 +935,34 @@
 	}();
 
 	module.exports = ScrollObject;
+
+/***/ },
+/* 18 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by mingtao on 9/22/16.
+	 */
+
+	utils = {
+	  getJson: function (url, data, callback, callbackError) {
+	    var xhr = new XMLHttpRequest();
+	    xhr.onreadystatechange = function () {
+	      if(xhr.readyState === 4) {
+	        if(xhr.status >= 200 && xhr.status < 300|| xhr.status == 304) {
+	          var data = JSON.parse(xhr.responseText);
+	          callback(data);
+	        } else {
+	          callbackError();
+	        }
+	      }
+	    };
+	    xhr.open('get', url);
+	    xhr.send(data);
+	  },
+	  post: function () {
+	  }
+	};
 
 /***/ }
 /******/ ]);

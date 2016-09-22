@@ -44,7 +44,9 @@ class ScrollObject{
   }
   getScrollHeight() {
     var scrollObj = this.element.querySelector(".scroll-obj");
-    return this.element.offsetHeight / scrollObj.offsetHeight;
+    var value = this.element.offsetHeight / scrollObj.offsetHeight;
+    value = value > 1? 1: value;
+    return value;
   }
   updateView(top_percent) {
     var scrollObj = this.element.querySelector(".scroll-obj");

@@ -7,7 +7,9 @@ class Card {
         </header>\
         <div class="body">\
           <div>\
-            <section class="left"></section\
+            <section class="left">\
+              <img src="{{image}}">\
+            </section\
             ><section class="right">\
               ``color``\
             </section>\
