@@ -1,24 +1,84 @@
+@import "../../base";
+
 .card {
+  display: inline-block;
+  vertical-align: top;
   width: 250px;
   height: 228px;
   margin: 10px;
   padding: 10px 10px 0;
   background-color: #fff;
+  box-sizing: border-box;
+
+  &.tra{
+    transition: all 1s;
+  }
 
   &>header{
     border-bottom: 1px solid #dde5e5;
+    height: 27px;
+
+    &>.title{
+      display: inline-block;
+      vertical-align: bottom;
+      width: 194px;
+      color: #799999;
+      font-size: 16px;
+      letter-spacing: 1.5px;
+
+      @extend %ellipsis-one;
+    }
+
+    &>.time{
+      display: inline-block;
+      vertical-align: bottom;
+      width: 36px;
+      color: #799999;
+      opacity: 0.54;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+    }
   }
 
   &>.body{
+    margin-top: 8px;
+
     section{
       display: inline-block;
+      vertical-align: top;
       height: 102px;
+
+      &.left{
+        width: 135px;
+        margin-right: 5px;
+      }
+      &.right{
+        width: 90px;
+      }
     }
 
     &>.text{
+      height: 32px;
+      overflow: hidden;
+
       text-indent: 2em;
       color: #999;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      margin-top: 10px;
+      margin-bottom: 8px;
+
+      @extend %ellipsis-more;
     }
+
+    .color-2-0, .color-2-1{height: 51px}
+    .color-3-0{height: 24px}
+    .color-3-1{height: 34px}
+    .color-3-2{height: 44px}
+    .color-4-0{height: 20px}
+    .color-4-1{height: 23px}
+    .color-4-2{height: 27px}
+    .color-4-3{height: 32px}
   }
 
   &>footer{
