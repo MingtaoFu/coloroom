@@ -6,10 +6,12 @@ require("../styles/index.scss");
 require("./components/card/style/Card.scss");
 require("./components/scrollBar/style/ScrollBar.scss");
 require("./components/scrollObject/style/scrollObject.scss");
+require("./components/cardPanel/style/CardPanel.scss");
 
-var Card = require("./components/card/Card.es6");
-var ScrollBar = require("./components/scrollBar/ScrollBar.es6");
-var ScrollObject = require("./components/scrollObject/ScrollObject.es6");
+var Card = require("./components/card/Card");
+var ScrollBar = require("./components/scrollBar/ScrollBar");
+var ScrollObject = require("./components/scrollObject/ScrollObject");
+var CardPanel = require("./components/cardPanel/CardPanel");
 require('./utils/utils');
 
 
@@ -38,6 +40,7 @@ window.onload = function () {
     scrollObject.addItems([card])
   });
 
+	/*
   function xxxx() {
 
     card2.style.transform = "translate(100%, 0)";
@@ -54,4 +57,8 @@ window.onload = function () {
   window.xxxx = xxxx
   window.card = card;
   window.card2 = card2
+	*/
+
+	document.body.appendChild(
+		new CardPanel({title:"添加色盘"}).element);
 };

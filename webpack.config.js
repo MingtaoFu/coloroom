@@ -7,6 +7,8 @@ module.exports = {
     path: './scripts',
     filename: "[name].build.js"
   },
+	plugins: [
+	],
   module: {
     loaders: [
       {
@@ -19,7 +21,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: "style!style"
+        loader: "style!css"
       },
       {
         test: /\.(jpg|png)$/,

@@ -1,0 +1,52 @@
+.panel-mask{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.panel {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+
+	&>.panel-header {
+		button {
+			outline: none;
+			height: 60px;
+			font-size: 36px;
+			color: #fff;
+			background-color: transparent;
+		}
+
+		h4 {
+			height: 60px;
+			line-height: 60px;
+
+			font-size: 18px;
+			color: #fff;
+			letter-spacing: 2px;
+		}
+
+		height: 60px;
+		background-color: #799999;
+		padding-left: 30px;
+		padding-right: 30px;
+
+
+		&>.panel-close {
+			-webkit-appearance: none;
+			cursor: pointer;
+			border: 0;
+
+			float: right;
+		}
+	}
+
+	&>.panel-body{
+		background-color: #fff;
+	}
+}

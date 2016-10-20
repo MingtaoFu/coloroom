@@ -1,0 +1,96 @@
+.color-picker {
+	.color-input-container {
+		float: left;
+		width: 100px;
+		height: 130px;
+		padding-top: 10px;
+		background-color: #e8ebeb;
+		box-sizing: border-box;
+
+		.color-input {
+			margin-bottom: 5px;
+			&>span{
+				display: block;
+				float: left;
+				width: 16px;
+				height: 20px;
+				line-height: 20px;
+				font-size: 10px;
+				color: #a1cccc;
+			}
+			&>input {
+				display: block;
+				float: left;
+				width: 67px;
+				height: 20px;
+				padding-left: 7px;
+				padding-right: 7px;
+				box-sizing: border-box;
+
+				font-size: 10px;
+				letter-spacing: 1px;
+				border: none;
+				outline: none;
+				color: #abd4d4;
+			}
+		}
+	}
+
+	.picker-container, .sp-picker-container {
+		border: none;
+	}
+
+	.picker-container {
+		background-color: #e8ebeb;
+		height: 130px;
+		float: left;
+	}
+
+	.sp-picker-container {
+		width: 120px;
+	}
+
+	.sp-dragger {
+		background-color: transparent;
+	}
+
+	.sp-slider {
+		height: 5px;
+	}
+
+	.sp-hue {
+		float: left;
+		position: relative;
+		height: 110px;
+		left: auto;
+		margin-left: 2px;
+		width: 6px;
+	}
+
+	.sp-top-inner {
+		height: 110px;
+		position: static;
+	}
+
+	.sp-fill {
+		display: none;
+	}
+
+	.sp-color {
+		float: left;
+		position: relative;
+		width: 110px;
+		height: 110px;
+
+		.sp-sat {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	$borderColor: #cacccc;
+	
+	.sp-hue, .sp-color, .sp-slider {
+		border: 1px solid $borderColor;
+	}
+}
