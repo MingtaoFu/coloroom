@@ -8,26 +8,29 @@ class ColorPicker {
 		var template = '\
 			<input data-plugin>\
 			<div class="color-input-container">\
-				<div class="color-input">\
+				<form class="color-input color-hex color-hex-form">\
 					<span>#</span>\
-					<input>\
+					<input name="hex">\
 					<div class="clear"></div>\
-				</div>\
-				<div class="color-input">\
-					<span>R</span>\
-					<input>\
-					<div class="clear"></div>\
-				</div>\
-				<div class="color-input">\
-					<span>G</span>\
-					<input>\
-					<div class="clear"></div>\
-				</div>\
-				<div class="color-input">\
-					<span>B</span>\
-					<input>\
-					<div class="clear"></div>\
-				</div>\
+				</form>\
+				<form class="color-rgb-form" action="">\
+					<div class="color-input">\
+						<span>R</span>\
+						<input name="rgb_r">\
+						<div class="clear"></div>\
+					</div>\
+					<div class="color-input">\
+						<span>G</span>\
+						<input name="rgb_g">\
+						<div class="clear"></div>\
+					</div>\
+					<div class="color-input">\
+						<span>B</span>\
+						<input name="rgb_b">\
+						<div class="clear"></div>\
+					</div>\
+					<input type="submit" style="display:none">\
+				</form>\
 			</div>\
 		';
 		var element = document.createElement("div");
@@ -35,7 +38,8 @@ class ColorPicker {
 		element.innerHTML = template;
 
 		{
-			$("[data-plugin]", element).spectrum({
+			this.plugin_ele = $("[data-plugin]", element);
+			this.plugin_ele.spectrum({
 				flat: true,
 				showButtons: false,
 				containerClassName: 'picker-container'
@@ -43,6 +47,37 @@ class ColorPicker {
 		}
 
 		this.element = element;
+		this.listenEvent();
+	}
+
+	listenEvent() {
+		var that = this;
+		var rgb_form = this.element.querySelector(".color-rgb-form");
+		rgb_form.addEventListener("submit", function(e) {
+			e.preventDefault();
+			let ele = e.target;
+			let value = "rgb(" + ele.rgb_r.value + "," + ele.rgb_g.value + "," + ele.rgb_b.value + ")";
+			that.plugin_ele.spectrum("set", value);
+			//it shows that how bad the plugin is
+			that.plugin_ele.spectrum("show");
+
+			let hex = that.plugin_ele.spectrum("get").toHex();
+			hex_form.hex.value = hex;
+		});
+
+		var hex_form = this.element.querySelector(".color-hex-form")
+		hex_form.addEventListener("submit", function(e) {
+			e.preventDefault();
+			let ele = e.target;
+			that.plugin_ele.spectrum("set", ele.hex.value);
+			//it shows that how bad the plugin is
+			that.plugin_ele.spectrum("show");
+
+			let rgb = that.plugin_ele.spectrum("get").toRgb();
+			rgb_form.rgb_r.value = rgb.r;
+			rgb_form.rgb_g.value = rgb.g;
+			rgb_form.rgb_b.value = rgb.b;
+		});
 	}
 }
 

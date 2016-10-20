@@ -1101,26 +1101,29 @@
 			var template = '\
 				<input data-plugin>\
 				<div class="color-input-container">\
-					<div class="color-input">\
+					<form class="color-input color-hex color-hex-form">\
 						<span>#</span>\
-						<input>\
+						<input name="hex">\
 						<div class="clear"></div>\
-					</div>\
-					<div class="color-input">\
-						<span>R</span>\
-						<input>\
-						<div class="clear"></div>\
-					</div>\
-					<div class="color-input">\
-						<span>G</span>\
-						<input>\
-						<div class="clear"></div>\
-					</div>\
-					<div class="color-input">\
-						<span>B</span>\
-						<input>\
-						<div class="clear"></div>\
-					</div>\
+					</form>\
+					<form class="color-rgb-form" action="">\
+						<div class="color-input">\
+							<span>R</span>\
+							<input name="rgb_r">\
+							<div class="clear"></div>\
+						</div>\
+						<div class="color-input">\
+							<span>G</span>\
+							<input name="rgb_g">\
+							<div class="clear"></div>\
+						</div>\
+						<div class="color-input">\
+							<span>B</span>\
+							<input name="rgb_b">\
+							<div class="clear"></div>\
+						</div>\
+						<input type="submit" style="display:none">\
+					</form>\
 				</div>\
 			';
 			var element = document.createElement("div");
@@ -1128,7 +1131,8 @@
 			element.innerHTML = template;
 
 			{
-				$("[data-plugin]", element).spectrum({
+				this.plugin_ele = $("[data-plugin]", element);
+				this.plugin_ele.spectrum({
 					flat: true,
 					showButtons: false,
 					containerClassName: 'picker-container'
@@ -1136,6 +1140,37 @@
 			}
 
 			this.element = element;
+			this.listenEvent();
+		}
+
+		listenEvent() {
+			var that = this;
+			var rgb_form = this.element.querySelector(".color-rgb-form");
+			rgb_form.addEventListener("submit", function(e) {
+				e.preventDefault();
+				let ele = e.target;
+				let value = "rgb(" + ele.rgb_r.value + "," + ele.rgb_g.value + "," + ele.rgb_b.value + ")";
+				that.plugin_ele.spectrum("set", value);
+				//it shows that how bad the plugin is
+				that.plugin_ele.spectrum("show");
+
+				let hex = that.plugin_ele.spectrum("get").toHex();
+				hex_form.hex.value = hex;
+			});
+
+			var hex_form = this.element.querySelector(".color-hex-form")
+			hex_form.addEventListener("submit", function(e) {
+				e.preventDefault();
+				let ele = e.target;
+				that.plugin_ele.spectrum("set", ele.hex.value);
+				//it shows that how bad the plugin is
+				that.plugin_ele.spectrum("show");
+
+				let rgb = that.plugin_ele.spectrum("get").toRgb();
+				rgb_form.rgb_r.value = rgb.r;
+				rgb_form.rgb_g.value = rgb.g;
+				rgb_form.rgb_b.value = rgb.b;
+			});
 		}
 	}
 
@@ -13772,7 +13807,7 @@
 
 
 	// module
-	exports.push([module.id, ".color-picker .color-input-container {\n  float: left;\n  width: 100px;\n  height: 130px;\n  padding-top: 10px;\n  background-color: #e8ebeb;\n  box-sizing: border-box; }\n  .color-picker .color-input-container .color-input {\n    margin-bottom: 5px; }\n    .color-picker .color-input-container .color-input > span {\n      display: block;\n      float: left;\n      width: 16px;\n      height: 20px;\n      line-height: 20px;\n      font-size: 10px;\n      color: #a1cccc; }\n    .color-picker .color-input-container .color-input > input {\n      display: block;\n      float: left;\n      width: 67px;\n      height: 20px;\n      padding-left: 7px;\n      padding-right: 7px;\n      box-sizing: border-box;\n      font-size: 10px;\n      letter-spacing: 1px;\n      border: none;\n      outline: none;\n      color: #abd4d4; }\n\n.color-picker .picker-container, .color-picker .sp-picker-container {\n  border: none; }\n\n.color-picker .picker-container {\n  background-color: #e8ebeb;\n  height: 130px;\n  float: left; }\n\n.color-picker .sp-picker-container {\n  width: 120px; }\n\n.color-picker .sp-dragger {\n  background-color: transparent; }\n\n.color-picker .sp-slider {\n  height: 5px; }\n\n.color-picker .sp-hue {\n  float: left;\n  position: relative;\n  height: 110px;\n  left: auto;\n  margin-left: 2px;\n  width: 6px; }\n\n.color-picker .sp-top-inner {\n  height: 110px;\n  position: static; }\n\n.color-picker .sp-fill {\n  display: none; }\n\n.color-picker .sp-color {\n  float: left;\n  position: relative;\n  width: 110px;\n  height: 110px; }\n  .color-picker .sp-color .sp-sat {\n    width: 100%;\n    height: 100%; }\n\n.color-picker .sp-hue, .color-picker .sp-color, .color-picker .sp-slider {\n  border: 1px solid #cacccc; }\n", ""]);
+	exports.push([module.id, ".color-picker .color-input-container {\n  float: left;\n  width: 100px;\n  height: 130px;\n  padding-top: 10px;\n  background-color: #e8ebeb;\n  box-sizing: border-box; }\n  .color-picker .color-input-container .color-input {\n    margin-bottom: 5px; }\n    .color-picker .color-input-container .color-input.color-hex {\n      margin-bottom: 10px; }\n    .color-picker .color-input-container .color-input > span {\n      display: block;\n      float: left;\n      width: 16px;\n      height: 20px;\n      line-height: 20px;\n      font-size: 10px;\n      color: #a1cccc; }\n    .color-picker .color-input-container .color-input > input {\n      display: block;\n      float: left;\n      width: 67px;\n      height: 20px;\n      padding-left: 7px;\n      padding-right: 7px;\n      box-sizing: border-box;\n      font-size: 10px;\n      letter-spacing: 1px;\n      border: none;\n      outline: none;\n      color: #abd4d4; }\n\n.color-picker .picker-container, .color-picker .sp-picker-container {\n  border: none; }\n\n.color-picker .picker-container {\n  background-color: #e8ebeb;\n  height: 130px;\n  float: left; }\n\n.color-picker .sp-picker-container {\n  width: 120px; }\n\n.color-picker .sp-dragger {\n  background-color: transparent; }\n\n.color-picker .sp-slider {\n  height: 5px; }\n\n.color-picker .sp-hue {\n  float: left;\n  position: relative;\n  height: 110px;\n  left: auto;\n  margin-left: 2px;\n  width: 6px; }\n\n.color-picker .sp-top-inner {\n  height: 110px;\n  position: static; }\n\n.color-picker .sp-fill {\n  display: none; }\n\n.color-picker .sp-color {\n  float: left;\n  position: relative;\n  width: 110px;\n  height: 110px; }\n  .color-picker .sp-color .sp-sat {\n    width: 100%;\n    height: 100%; }\n\n.color-picker .sp-hue, .color-picker .sp-color, .color-picker .sp-slider {\n  border: 1px solid #cacccc; }\n", ""]);
 
 	// exports
 
