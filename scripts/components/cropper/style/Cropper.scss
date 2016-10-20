@@ -1,3 +1,46 @@
-.croppie-container {
-	padding: 0;
+.cropper {
+	position: relative;
+	background-color: #f4f6f6;
+
+	.cropper-upload {
+		position: absolute;
+		z-index: 1;
+		width: 40px;
+		height: 42px;
+		left: 0;
+		top: 0;
+
+		-webkit-appearance: none;
+		outline: none;
+		border: none;
+		background-color: #fdc677;
+		color: #fff;
+
+		input {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			top: 0;
+
+			opacity: 0;
+			cursor: pointer;
+			//hack
+			font-size: 0;
+		}
+	}
+
+	.croppie-container {
+		padding: 0;
+		z-index: 0;
+	}
+	.cr-slider-wrap {
+		z-index: 1;
+		position: absolute;
+		margin-top: -40px;
+		left: 30px;
+	}
+	.cr-viewport {
+		border: none;
+	}
 }

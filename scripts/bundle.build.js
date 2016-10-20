@@ -144,7 +144,7 @@
 	exports.i(__webpack_require__(4), "");
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n.clear {\n  clear: both; }\n\nbody {\n  background-color: #E8F1F5;\n  font-family: \"\\5FAE\\8F6F\\96C5\\9ED1\", \"Microsoft YaHei\", \"Microsoft YaHei UI\", \"Microsoft YaHei Regular\", \"\\9ED1\\4F53\"; }\n\n#container {\n  max-width: 928px;\n  margin-left: auto;\n  margin-right: auto;\n  padding-top: 50px; }\n\n.header, .user {\n  height: 60px;\n  box-sizing: border-box;\n  border: 2px solid #fff; }\n\n.user {\n  width: 60px;\n  float: right; }\n\n.header {\n  float: left;\n  width: 282px;\n  padding: 15px 22px; }\n  .header .logo, .header .page {\n    display: inline-block;\n    height: 26px;\n    line-height: 26px;\n    vertical-align: top;\n    font-size: 20px; }\n  .header .page {\n    margin-left: 24px;\n    letter-spacing: 3px; }\n\n.logo span {\n  float: left;\n  margin-right: 3px; }\n  .logo span:nth-child(1) {\n    color: #a08e77; }\n  .logo span:nth-child(2) {\n    color: #f1af63; }\n  .logo span:nth-child(3) {\n    color: #90b774; }\n  .logo span:nth-child(4) {\n    color: #818181; }\n  .logo span:nth-child(5) {\n    color: #81c9d1; }\n  .logo span:nth-child(6) {\n    color: #799999; }\n  .logo span:nth-child(7) {\n    color: #bacc65; }\n  .logo span:nth-child(8) {\n    color: #65b8ba; }\n\n.body {\n  position: relative;\n  max-width: 810px;\n  margin-top: 20px;\n  margin-left: auto;\n  margin-right: auto; }\n  .body .add-btn {\n    position: absolute;\n    width: 60px;\n    height: 60px;\n    background-color: #dcccb4;\n    left: 100%;\n    top: 50%; }\n  .body .scroll-bar {\n    position: absolute;\n    width: 16px;\n    height: 40%;\n    margin-top: 10px;\n    left: 100%;\n    top: 0; }\n  .body .scroll-bar-track {\n    height: 100%;\n    border-radius: 8px;\n    background-color: #ddd; }\n  .body .scroll-bar-thumb {\n    position: relative;\n    height: 50px;\n    top: 20px;\n    border-radius: 8px;\n    background-color: #009999; }\n\n.scroll-obj-container {\n  overflow-y: hidden; }\n\n.scroll-obj {\n  position: relative; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n@font-face {\n  font-family: 'iconfont';\n  src: url(\"//at.alicdn.com/t/font_1476972709_683237.eot\");\n  /* IE9*/\n  src: url(\"//at.alicdn.com/t/font_1476972709_683237.eot?#iefix\") format(\"embedded-opentype\"), url(\"//at.alicdn.com/t/font_1476972709_683237.woff\") format(\"woff\"), url(\"//at.alicdn.com/t/font_1476972709_683237.ttf\") format(\"truetype\"), url(\"//at.alicdn.com/t/font_1476972709_683237.svg#iconfont\") format(\"svg\");\n  /* iOS 4.1- */ }\n\n.iconfont {\n  font-family: \"iconfont\";\n  font-size: 16px; }\n\n.clear {\n  clear: both; }\n\nbody {\n  background-color: #E8F1F5;\n  font-family: \"\\5FAE\\8F6F\\96C5\\9ED1\", \"Microsoft YaHei\", \"Microsoft YaHei UI\", \"Microsoft YaHei Regular\", \"\\9ED1\\4F53\"; }\n\n#container {\n  max-width: 928px;\n  margin-left: auto;\n  margin-right: auto;\n  padding-top: 50px; }\n\n.header, .user {\n  height: 60px;\n  box-sizing: border-box;\n  border: 2px solid #fff; }\n\n.user {\n  width: 60px;\n  float: right; }\n\n.header {\n  float: left;\n  width: 282px;\n  padding: 15px 22px; }\n  .header .logo, .header .page {\n    display: inline-block;\n    height: 26px;\n    line-height: 26px;\n    vertical-align: top;\n    font-size: 20px; }\n  .header .page {\n    margin-left: 24px;\n    letter-spacing: 3px; }\n\n.logo span {\n  float: left;\n  margin-right: 3px; }\n  .logo span:nth-child(1) {\n    color: #a08e77; }\n  .logo span:nth-child(2) {\n    color: #f1af63; }\n  .logo span:nth-child(3) {\n    color: #90b774; }\n  .logo span:nth-child(4) {\n    color: #818181; }\n  .logo span:nth-child(5) {\n    color: #81c9d1; }\n  .logo span:nth-child(6) {\n    color: #799999; }\n  .logo span:nth-child(7) {\n    color: #bacc65; }\n  .logo span:nth-child(8) {\n    color: #65b8ba; }\n\n.body {\n  position: relative;\n  max-width: 810px;\n  margin-top: 20px;\n  margin-left: auto;\n  margin-right: auto; }\n  .body .add-btn {\n    position: absolute;\n    width: 60px;\n    height: 60px;\n    background-color: #dcccb4;\n    left: 100%;\n    top: 50%; }\n  .body .scroll-bar {\n    position: absolute;\n    width: 16px;\n    height: 40%;\n    margin-top: 10px;\n    left: 100%;\n    top: 0; }\n  .body .scroll-bar-track {\n    height: 100%;\n    border-radius: 8px;\n    background-color: #ddd; }\n  .body .scroll-bar-thumb {\n    position: relative;\n    height: 50px;\n    top: 20px;\n    border-radius: 8px;\n    background-color: #009999; }\n\n.scroll-obj-container {\n  overflow-y: hidden; }\n\n.scroll-obj {\n  position: relative; }\n", ""]);
 
 	// exports
 
@@ -13834,16 +13834,22 @@
 	class Cropper {
 		constructor() {
 			var template = '\
+				<div data-plugin></div>\
+				<button class="cropper-upload iconfont">\
+					&#xe603;\
+					<input type="file" accept="image/gif, image/jpeg, image/png">\
+				</button>\
 			';
 
 			var element = document.createElement("div");
+			element.className = "cropper";
 			element.innerHTML = template;
 			this.element = element;
 
 			{
-				var c = new Croppie(element, {
-					showZoomer: false,
-					url: '/images/t.png',
+				let c = new Croppie(element.querySelector("[data-plugin]"), {
+					//showZoomer: false,
+					//url: '/images/t.png',
 					viewport: {
 						width: 240,
 						height: 162
@@ -13851,6 +13857,22 @@
 					boundary: {
 						width: 240,
 						height: 162
+					}
+				});
+
+				let fileReader = new FileReader();
+				fileReader.onload = function(e) {
+					c.bind({
+						url: e.target.result
+					});
+				};
+				let fileReaderFilter = /^(?:image\/jpeg|image\/png|image\/gif)$/i;
+				element.querySelector("[type=file]").addEventListener("change", function(e) {
+					var file = this.files[0];
+					if(!fileReaderFilter.test(file.type)) {
+						alert("类型错误");
+					} else {
+						fileReader.readAsDataURL(file);
 					}
 				});
 			}
@@ -15394,7 +15416,7 @@
 
 
 	// module
-	exports.push([module.id, ".croppie-container {\n  padding: 0; }\n", ""]);
+	exports.push([module.id, ".cropper {\n  position: relative;\n  background-color: #f4f6f6; }\n  .cropper .cropper-upload {\n    position: absolute;\n    z-index: 1;\n    width: 40px;\n    height: 42px;\n    left: 0;\n    top: 0;\n    -webkit-appearance: none;\n    outline: none;\n    border: none;\n    background-color: #fdc677;\n    color: #fff; }\n    .cropper .cropper-upload input {\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      left: 0;\n      top: 0;\n      opacity: 0;\n      cursor: pointer;\n      font-size: 0; }\n  .cropper .croppie-container {\n    padding: 0;\n    z-index: 0; }\n  .cropper .cr-slider-wrap {\n    z-index: 1;\n    position: absolute;\n    margin-top: -40px;\n    left: 30px; }\n  .cropper .cr-viewport {\n    border: none; }\n", ""]);
 
 	// exports
 
