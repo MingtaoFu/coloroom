@@ -38,11 +38,21 @@ class ColorPicker {
 		element.innerHTML = template;
 
 		{
+			let rgb_form = element.querySelector(".color-rgb-form");
+			let	hex_form = element.querySelector(".color-hex-form")
+
 			this.plugin_ele = $("[data-plugin]", element);
 			this.plugin_ele.spectrum({
 				flat: true,
 				showButtons: false,
-				containerClassName: 'picker-container'
+				containerClassName: 'picker-container',
+				move: function(color) {
+					rgb_form.rgb_r.value = color.toRgb().r;
+					rgb_form.rgb_g.value = color.toRgb().g;
+					rgb_form.rgb_b.value = color.toRgb().b;
+
+					hex_form.hex.value = color.toHex();
+				}
 			});
 		}
 
