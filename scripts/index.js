@@ -14,7 +14,6 @@ var ScrollObject = require("./components/scrollObject/ScrollObject");
 var CardPanel = require("./components/cardPanel/CardPanel");
 require('./utils/utils');
 
-
 window.onload = function () {
   var body = document.querySelector(".body");
   var scrollObject = new ScrollObject();

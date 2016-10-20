@@ -1,3 +1,5 @@
+require("./style/ColorList.scss");
+
 class ColorList {
 	constructor(list) {
 		var template = '\
