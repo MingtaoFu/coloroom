@@ -1,9 +1,31 @@
 .color-picker {
+	position: relative;
+	padding-top: 4px;
+
+	.picker-trangle {
+		position: absolute;
+		width: 5.568542px;
+		height: 5.568542px;
+		top: 0;
+		left: 20px;
+		background-color: #e8ebeb;
+
+		-webkit-transform: skew(16deg) rotate(53deg) translate(0px,3px);
+		-moz-transform: skew(16deg) rotate(53deg) translate(0px,3px);
+		-o-transform: skew(16deg) rotate(53deg) translate(0px,3px);
+		transform: skew(16deg) rotate(53deg) translate(0px,3px);
+
+		-webkit-transition: left ease-in-out .15s;
+		-moz-transition: left ease-in-out .15s;
+		-o-transition: left ease-in-out .15s;
+		transition: left ease-in-out .15s;
+	}
 	.color-input-container {
 		float: left;
-		width: 100px;
+		width: 98px;
 		height: 130px;
 		padding-top: 10px;
+		padding-left: 7px;
 		background-color: #e8ebeb;
 		box-sizing: border-box;
 
@@ -51,7 +73,7 @@
 	}
 
 	.sp-picker-container {
-		width: 120px;
+		width: 122px;
 	}
 
 	.sp-dragger {
@@ -71,7 +93,7 @@
 		height: 110px;
 		left: auto;
 		margin-left: 2px;
-		width: 6px;
+		width: 10px;
 	}
 
 	.sp-top-inner {

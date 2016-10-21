@@ -23,8 +23,8 @@ class Cropper {
 				//showZoomer: false,
 				//url: '/images/t.png',
 				viewport: {
-					width: 240,
-					height: 162
+					width: 135,
+					height: 102
 				},
 				boundary: {
 					width: 240,

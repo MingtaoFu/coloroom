@@ -17,9 +17,13 @@
 		button {
 			outline: none;
 			height: 60px;
-			font-size: 36px;
+			font-size: 18px;
 			color: #fff;
 			background-color: transparent;
+			opacity: 0.8;
+			&:hover {
+				opacity: 1;
+			}
 		}
 
 		h4 {
@@ -28,7 +32,7 @@
 
 			font-size: 18px;
 			color: #fff;
-			letter-spacing: 2px;
+			letter-spacing: 2px;	
 		}
 
 		height: 60px;

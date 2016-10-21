@@ -1,10 +1,48 @@
 .color-list {
+	height: 42px;
+	.color-container {
+		display: inline-block;
+		position: relative;
+	}
 	.color-item {
 		width: 40px;
 		height: 40px;
+		box-sizing: border-box;
+		margin-right: 10px;
 
 		border-radius: 50%;
 		border: none;
 		outline: none;
+		cursor: pointer;
+
+		&.normal {
+			-webkit-transition: box-shadow ease-in-out .15s;
+			-moz-transition: box-shadow ease-in-out .15s;
+			-o-transition: box-shadow ease-in-out .15s;
+
+			&:focus {
+				box-shadow: 0 0 0 1.5px #fff;
+			}
+		}
+
+		&.color-add {
+			vertical-align: top;
+			color: #fdc677;
+			background-color: transparent;
+			border: 1px solid #d9dbdb;
+			font-size: 24px;
+			box-sizing: border-box;
+
+			-webkit-transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s;
+			-moz-transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s;
+			-o-transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s;
+			transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s;
+
+			&:hover {
+				color: #fff;
+				background-color: #fdc677;
+				border: none;
+			}
+		}
 	}
 }

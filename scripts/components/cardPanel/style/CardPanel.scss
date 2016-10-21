@@ -27,20 +27,30 @@
 
 	&[name=title] {
 		height: 40px;
-
-		background-color: #e1e6ef;
 	}
 
 	&[name=desc] {
 		height: 58px;
 		resize: none;
+	}
+
+  &[name=title], &[name=desc] {
 		background-color: #f2f6fa;
+		color: #888;
+		&:focus {
+			background-color: #e1e6ef;
+		}
+
+		-webkit-transition: background-color ease-in-out .15s;
+		-o-transition: background-color ease-in-out .15s;
+		transition: background-color ease-in-out .15s;
 	}
 
 	&[name=label] {
 		display: block;
 		height: 40px;
 		line-height: 40px;
+		color: #888;
 	}
 
 	margin-bottom: 10px;

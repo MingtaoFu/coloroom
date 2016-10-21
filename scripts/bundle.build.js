@@ -626,7 +626,7 @@
 
 
 	// module
-	exports.push([module.id, ".panel-mask {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.5); }\n\n.panel {\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 30px; }\n  .panel > .panel-header {\n    height: 60px;\n    background-color: #799999;\n    padding-left: 30px;\n    padding-right: 30px; }\n    .panel > .panel-header button {\n      outline: none;\n      height: 60px;\n      font-size: 36px;\n      color: #fff;\n      background-color: transparent; }\n    .panel > .panel-header h4 {\n      height: 60px;\n      line-height: 60px;\n      font-size: 18px;\n      color: #fff;\n      letter-spacing: 2px; }\n    .panel > .panel-header > .panel-close {\n      -webkit-appearance: none;\n      cursor: pointer;\n      border: 0;\n      float: right; }\n  .panel > .panel-body {\n    background-color: #fff; }\n\n.panel {\n  width: 600px; }\n  .panel .panel-body {\n    height: 325px; }\n  .panel .panel-body-half {\n    width: 50%;\n    height: 100%;\n    float: left;\n    padding: 20px 30px;\n    box-sizing: border-box; }\n    .panel .panel-body-half.right {\n      background-color: #f4f6f6; }\n\n.form-control {\n  font-size: 12px;\n  letter-spacing: 1px;\n  width: 100%;\n  margin-bottom: 10px; }\n  .form-control[name=title] {\n    height: 40px;\n    background-color: #e1e6ef; }\n  .form-control[name=desc] {\n    height: 58px;\n    resize: none;\n    background-color: #f2f6fa; }\n  .form-control[name=label] {\n    display: block;\n    height: 40px;\n    line-height: 40px; }\n\ninput.form-control, textarea.form-control {\n  border: none;\n  outline: none;\n  padding: 10px;\n  box-sizing: border-box; }\n", ""]);
+	exports.push([module.id, ".panel-mask {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.5); }\n\n.panel {\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 30px; }\n  .panel > .panel-header {\n    height: 60px;\n    background-color: #799999;\n    padding-left: 30px;\n    padding-right: 30px; }\n    .panel > .panel-header button {\n      outline: none;\n      height: 60px;\n      font-size: 18px;\n      color: #fff;\n      background-color: transparent;\n      opacity: 0.8; }\n      .panel > .panel-header button:hover {\n        opacity: 1; }\n    .panel > .panel-header h4 {\n      height: 60px;\n      line-height: 60px;\n      font-size: 18px;\n      color: #fff;\n      letter-spacing: 2px; }\n    .panel > .panel-header > .panel-close {\n      -webkit-appearance: none;\n      cursor: pointer;\n      border: 0;\n      float: right; }\n  .panel > .panel-body {\n    background-color: #fff; }\n\n.panel {\n  width: 600px; }\n  .panel .panel-body {\n    height: 325px; }\n  .panel .panel-body-half {\n    width: 50%;\n    height: 100%;\n    float: left;\n    padding: 20px 30px;\n    box-sizing: border-box; }\n    .panel .panel-body-half.right {\n      background-color: #f4f6f6; }\n\n.form-control {\n  font-size: 12px;\n  letter-spacing: 1px;\n  width: 100%;\n  margin-bottom: 10px; }\n  .form-control[name=title] {\n    height: 40px; }\n  .form-control[name=desc] {\n    height: 58px;\n    resize: none; }\n  .form-control[name=title], .form-control[name=desc] {\n    background-color: #f2f6fa;\n    color: #888;\n    -webkit-transition: background-color ease-in-out .15s;\n    -o-transition: background-color ease-in-out .15s;\n    transition: background-color ease-in-out .15s; }\n    .form-control[name=title]:focus, .form-control[name=desc]:focus {\n      background-color: #e1e6ef; }\n  .form-control[name=label] {\n    display: block;\n    height: 40px;\n    line-height: 40px;\n    color: #888; }\n\ninput.form-control, textarea.form-control {\n  border: none;\n  outline: none;\n  padding: 10px;\n  box-sizing: border-box; }\n", ""]);
 
 	// exports
 
@@ -932,7 +932,7 @@
 					<input class="form-control" name="title"\
 						placeholder="请输入名称">\
 					<textarea class="form-control" name="desc"\
-						placeholder="描述一下你的配色盘"></textarea>\
+						placeholder="描述一下你的配色盘" novalidation></textarea>\
 					<cropper></cropper>\
 				</div>\
 				<div class="panel-body-half right">\
@@ -949,25 +949,24 @@
 				body: panel_body_template
 			});
 
+			var cropper = new Cropper();
+			var colorPicker = new ColorPicker();
+			var colorList = new ColorList();
 			{
 				let ele = this.element.querySelector("cropper");
-				let cropper = new Cropper();
-				//colorList.element.className += ele.className;
+				cropper.element.className += " " + ele.className;
 				ele.parentNode.replaceChild(cropper.element, ele);
 			}
-
-			{
-				let ele = this.element.querySelector("color-list");
-				let colorList = new ColorList();
-				//colorList.element.className += ele.className;
-				ele.parentNode.replaceChild(colorList.element, ele);
-			}
-
 			{
 				let ele = this.element.querySelector("color-picker");
-				let colorPicker = new ColorPicker();
-				//colorPicker.element.className += ele.className;
+				colorPicker.element.className += " " + ele.className;
 				ele.parentNode.replaceChild(colorPicker.element, ele);
+			}
+			{
+				let ele = this.element.querySelector("color-list");
+				colorList.element.className += " " + ele.className;
+				colorList.setController(colorPicker);
+				ele.parentNode.replaceChild(colorList.element, ele);
 			}
 		}
 	}
@@ -984,7 +983,7 @@
 			var template = '\
 				<div class="panel">\
 					<div class="panel-header">\
-						<button type="button" class="panel-close">×</button>\
+						<button type="button" class="panel-close iconfont">&#xe601;</button>\
 						<h4 class="panel-title">{{title}}</h4>\
 					</div>\
 					<div class="panel-body">\
@@ -1024,17 +1023,67 @@
 	class ColorList {
 		constructor(list) {
 			var template = '\
-				<button class="color-item">+</button>\
+				<div class="color-container"></div\
+				><button class="color-item iconfont color-add">&#xe604;</button>\
 			';
 
 			var element = document.createElement("div");
 			element.className = "color-list";
 			element.innerHTML = template;
 			this.element = element;
+
+			this.addBtn = element.querySelector(".color-add");
+			this.container = element.querySelector(".color-container");
+			this.colors = [];
+
+			this.listenEvent();
+		}
+
+		setController(ctrl) {
+			this.ctrl = ctrl;
+			ctrl.setList(this);
+		}
+
+		setColor(color) {
+			if(this.activeElement) {
+				if(!color.match(/(^rgb)|(^#)/)) {
+					color = "#" + color;
+				}
+				this.activeElement.style.backgroundColor = color;
+				this.activeElement.obj.color = color.replace("#", "");
+			}
 		}
 
 		listenEvent() {
+			var that = this;
+			this.addBtn.addEventListener("click", function() {
+				var btn =  document.createElement("button");
 
+				btn.addEventListener("focus", function() {
+					that.ctrl.setColor(this.obj.color.replace("#", ""), ["painter", "hex", "rgb"]);
+					that.activeElement = this;
+
+					var center = this.offsetLeft + this.offsetWidth / 2;
+					that.ctrl.moveArrow(center);
+				});
+
+				btn.className = "color-item normal";
+				btn.style.backgroundColor = "#799999";
+
+				var obj = {
+					color: "#799999",
+					ele: btn
+				};
+				btn.obj = obj;
+
+				that.colors.push(obj);
+				that.container.appendChild(btn);
+				btn.focus();
+
+				if(that.colors.length === 4) {
+					this.style.display = "none";
+				}
+			});
 		}
 
 		del(index) {
@@ -1082,7 +1131,7 @@
 
 
 	// module
-	exports.push([module.id, ".color-list .color-item {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  border: none;\n  outline: none; }\n", ""]);
+	exports.push([module.id, ".color-list {\n  height: 42px; }\n  .color-list .color-container {\n    display: inline-block;\n    position: relative; }\n  .color-list .color-item {\n    width: 40px;\n    height: 40px;\n    box-sizing: border-box;\n    margin-right: 10px;\n    border-radius: 50%;\n    border: none;\n    outline: none;\n    cursor: pointer; }\n    .color-list .color-item.normal {\n      -webkit-transition: box-shadow ease-in-out .15s;\n      -moz-transition: box-shadow ease-in-out .15s;\n      -o-transition: box-shadow ease-in-out .15s; }\n      .color-list .color-item.normal:focus {\n        box-shadow: 0 0 0 1.5px #fff; }\n    .color-list .color-item.color-add {\n      vertical-align: top;\n      color: #fdc677;\n      background-color: transparent;\n      border: 1px solid #d9dbdb;\n      font-size: 24px;\n      box-sizing: border-box;\n      -webkit-transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s;\n      -moz-transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s;\n      -o-transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s;\n      transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s; }\n      .color-list .color-item.color-add:hover {\n        color: #fff;\n        background-color: #fdc677;\n        border: none; }\n", ""]);
 
 	// exports
 
@@ -1099,6 +1148,7 @@
 	class ColorPicker {
 		constructor() {
 			var template = '\
+				<div class="picker-trangle"></div>\
 				<input data-plugin>\
 				<div class="color-input-container">\
 					<form class="color-input color-hex color-hex-form">\
@@ -1125,6 +1175,7 @@
 						<input type="submit" style="display:none">\
 					</form>\
 				</div>\
+				<div class="clear"></div>\
 			';
 			var element = document.createElement("div");
 			element.className = "color-picker";
@@ -1135,51 +1186,86 @@
 				let	hex_form = element.querySelector(".color-hex-form")
 
 				this.plugin_ele = $("[data-plugin]", element);
+				var that = this;
 				this.plugin_ele.spectrum({
 					flat: true,
 					showButtons: false,
 					containerClassName: 'picker-container',
 					move: function(color) {
-						rgb_form.rgb_r.value = color.toRgb().r;
-						rgb_form.rgb_g.value = color.toRgb().g;
-						rgb_form.rgb_b.value = color.toRgb().b;
-
-						hex_form.hex.value = color.toHex();
+						color = color.toHex();
+						that.setColor(color, ["hex", "rgb"]);
+						that.list.setColor(color);
 					}
 				});
 			}
 
+			this.arrow = element.querySelector(".picker-trangle");
+			this.rgb_form = element.querySelector(".color-rgb-form");
+			this.hex_form = element.querySelector(".color-hex-form")
 			this.element = element;
 			this.listenEvent();
 		}
 
+		moveArrow(left) {
+			this.arrow.style.left = left + "px";
+		}
+
+		setList(list) {
+			this.list = list;
+		}
+
+		setColor(color, mode) {
+			var that = this;
+			const operation = {
+				rgb: function() {
+					var rgb;
+					if(color && color.match(/^rgb/)) {
+						rgb = color;
+					} else {
+						rgb = that.plugin_ele.spectrum("get").toRgb();
+					}
+					that.rgb_form.rgb_r.value = rgb.r;
+					that.rgb_form.rgb_g.value = rgb.g;
+					that.rgb_form.rgb_b.value = rgb.b;
+				},
+				hex: function() {
+					var hex;
+					if(color && color.match(/^#/)) {
+						hex = color;
+					} else {
+						hex = that.plugin_ele.spectrum("get").toHex();
+					}
+					that.hex_form.hex.value = hex;
+				},
+				painter: function() {
+					that.plugin_ele.spectrum("set", color);
+					//it shows that how bad the plugin is
+					that.plugin_ele.spectrum("show");
+				}
+			}
+
+			for(let i = 0; i < mode.length; i++) {
+				operation[mode[i]]();
+			}
+		}
+
 		listenEvent() {
 			var that = this;
-			var rgb_form = this.element.querySelector(".color-rgb-form");
-			rgb_form.addEventListener("submit", function(e) {
+			this.rgb_form.addEventListener("submit", function(e) {
 				e.preventDefault();
 				let ele = e.target;
 				let value = "rgb(" + ele.rgb_r.value + "," + ele.rgb_g.value + "," + ele.rgb_b.value + ")";
-				that.plugin_ele.spectrum("set", value);
-				//it shows that how bad the plugin is
-				that.plugin_ele.spectrum("show");
 
-				let hex = that.plugin_ele.spectrum("get").toHex();
-				hex_form.hex.value = hex;
+				that.setColor(value, ["painter", "hex"]);	
+				that.list.setColor(value);
 			});
 
-			var hex_form = this.element.querySelector(".color-hex-form")
-			hex_form.addEventListener("submit", function(e) {
+			this.hex_form.addEventListener("submit", function(e) {
 				e.preventDefault();
 				let ele = e.target;
-				that.plugin_ele.spectrum("set", ele.hex.value);
-				//it shows that how bad the plugin is
-				that.plugin_ele.spectrum("show");
 
-				let rgb = that.plugin_ele.spectrum("get").toRgb();
-				rgb_form.rgb_r.value = rgb.r;
-				rgb_form.rgb_g.value = rgb.g;
-				rgb_form.rgb_b.value = rgb.b;
+				that.setColor(ele.hex.value, ["painter", "rgb"]);	
+				that.list.setColor(ele.hex.value);
 			});
 		}
 	}
@@ -13817,7 +13903,7 @@
 
 
 	// module
-	exports.push([module.id, ".color-picker .color-input-container {\n  float: left;\n  width: 100px;\n  height: 130px;\n  padding-top: 10px;\n  background-color: #e8ebeb;\n  box-sizing: border-box; }\n  .color-picker .color-input-container .color-input {\n    margin-bottom: 5px; }\n    .color-picker .color-input-container .color-input.color-hex {\n      margin-bottom: 10px; }\n    .color-picker .color-input-container .color-input > span {\n      display: block;\n      float: left;\n      width: 16px;\n      height: 20px;\n      line-height: 20px;\n      font-size: 10px;\n      color: #a1cccc; }\n    .color-picker .color-input-container .color-input > input {\n      display: block;\n      float: left;\n      width: 67px;\n      height: 20px;\n      padding-left: 7px;\n      padding-right: 7px;\n      box-sizing: border-box;\n      font-size: 10px;\n      letter-spacing: 1px;\n      border: none;\n      outline: none;\n      color: #abd4d4; }\n\n.color-picker .picker-container, .color-picker .sp-picker-container {\n  border: none; }\n\n.color-picker .picker-container {\n  background-color: #e8ebeb;\n  height: 130px;\n  float: left; }\n\n.color-picker .sp-picker-container {\n  width: 120px; }\n\n.color-picker .sp-dragger {\n  background-color: transparent; }\n\n.color-picker .sp-slider {\n  height: 5px; }\n\n.color-picker .sp-hue {\n  float: left;\n  position: relative;\n  height: 110px;\n  left: auto;\n  margin-left: 2px;\n  width: 6px; }\n\n.color-picker .sp-top-inner {\n  height: 110px;\n  position: static; }\n\n.color-picker .sp-fill {\n  display: none; }\n\n.color-picker .sp-color {\n  float: left;\n  position: relative;\n  width: 110px;\n  height: 110px; }\n  .color-picker .sp-color .sp-sat {\n    width: 100%;\n    height: 100%; }\n\n.color-picker .sp-hue, .color-picker .sp-color, .color-picker .sp-slider {\n  border: 1px solid #cacccc; }\n", ""]);
+	exports.push([module.id, ".color-picker {\n  position: relative;\n  padding-top: 4px; }\n  .color-picker .picker-trangle {\n    position: absolute;\n    width: 5.568542px;\n    height: 5.568542px;\n    top: 0;\n    left: 20px;\n    background-color: #e8ebeb;\n    -webkit-transform: skew(16deg) rotate(53deg) translate(0px, 3px);\n    -moz-transform: skew(16deg) rotate(53deg) translate(0px, 3px);\n    -o-transform: skew(16deg) rotate(53deg) translate(0px, 3px);\n    transform: skew(16deg) rotate(53deg) translate(0px, 3px);\n    -webkit-transition: left ease-in-out .15s;\n    -moz-transition: left ease-in-out .15s;\n    -o-transition: left ease-in-out .15s;\n    transition: left ease-in-out .15s; }\n  .color-picker .color-input-container {\n    float: left;\n    width: 98px;\n    height: 130px;\n    padding-top: 10px;\n    padding-left: 7px;\n    background-color: #e8ebeb;\n    box-sizing: border-box; }\n    .color-picker .color-input-container .color-input {\n      margin-bottom: 5px; }\n      .color-picker .color-input-container .color-input.color-hex {\n        margin-bottom: 10px; }\n      .color-picker .color-input-container .color-input > span {\n        display: block;\n        float: left;\n        width: 16px;\n        height: 20px;\n        line-height: 20px;\n        font-size: 10px;\n        color: #a1cccc; }\n      .color-picker .color-input-container .color-input > input {\n        display: block;\n        float: left;\n        width: 67px;\n        height: 20px;\n        padding-left: 7px;\n        padding-right: 7px;\n        box-sizing: border-box;\n        font-size: 10px;\n        letter-spacing: 1px;\n        border: none;\n        outline: none;\n        color: #abd4d4; }\n  .color-picker .picker-container, .color-picker .sp-picker-container {\n    border: none; }\n  .color-picker .picker-container {\n    background-color: #e8ebeb;\n    height: 130px;\n    float: left; }\n  .color-picker .sp-picker-container {\n    width: 122px; }\n  .color-picker .sp-dragger {\n    background-color: transparent; }\n  .color-picker .sp-slider {\n    height: 5px; }\n  .color-picker .sp-hue {\n    float: left;\n    position: relative;\n    height: 110px;\n    left: auto;\n    margin-left: 2px;\n    width: 10px; }\n  .color-picker .sp-top-inner {\n    height: 110px;\n    position: static; }\n  .color-picker .sp-fill {\n    display: none; }\n  .color-picker .sp-color {\n    float: left;\n    position: relative;\n    width: 110px;\n    height: 110px; }\n    .color-picker .sp-color .sp-sat {\n      width: 100%;\n      height: 100%; }\n  .color-picker .sp-hue, .color-picker .sp-color, .color-picker .sp-slider {\n    border: 1px solid #cacccc; }\n", ""]);
 
 	// exports
 
@@ -13851,8 +13937,8 @@
 					//showZoomer: false,
 					//url: '/images/t.png',
 					viewport: {
-						width: 240,
-						height: 162
+						width: 135,
+						height: 102
 					},
 					boundary: {
 						width: 240,
@@ -15416,7 +15502,7 @@
 
 
 	// module
-	exports.push([module.id, ".cropper {\n  position: relative;\n  background-color: #f4f6f6; }\n  .cropper .cropper-upload {\n    position: absolute;\n    z-index: 1;\n    width: 40px;\n    height: 42px;\n    left: 0;\n    top: 0;\n    -webkit-appearance: none;\n    outline: none;\n    border: none;\n    background-color: #fdc677;\n    color: #fff; }\n    .cropper .cropper-upload input {\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      left: 0;\n      top: 0;\n      opacity: 0;\n      cursor: pointer;\n      font-size: 0; }\n  .cropper .croppie-container {\n    padding: 0;\n    z-index: 0; }\n  .cropper .cr-slider-wrap {\n    z-index: 1;\n    position: absolute;\n    margin-top: -40px;\n    left: 30px; }\n  .cropper .cr-viewport {\n    border: none; }\n", ""]);
+	exports.push([module.id, ".cropper {\n  position: relative;\n  background-color: #f4f6f6; }\n  .cropper .cropper-upload {\n    position: absolute;\n    z-index: 1;\n    width: 40px;\n    height: 42px;\n    left: 0;\n    top: 0;\n    -webkit-appearance: none;\n    outline: none;\n    border: none;\n    background-color: #fdc677;\n    color: #fff; }\n    .cropper .cropper-upload input {\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      left: 0;\n      top: 0;\n      opacity: 0;\n      cursor: pointer;\n      font-size: 0; }\n  .cropper .croppie-container {\n    padding: 0;\n    z-index: 0; }\n  .cropper .cr-slider-wrap {\n    z-index: 1;\n    position: absolute;\n    margin-top: -30px;\n    left: 30px; }\n  .cropper .cr-viewport {\n    border: none; }\n", ""]);
 
 	// exports
 

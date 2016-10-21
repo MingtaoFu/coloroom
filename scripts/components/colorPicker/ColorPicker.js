@@ -6,6 +6,7 @@ require("./style/ColorPicker.scss");
 class ColorPicker {
 	constructor() {
 		var template = '\
+			<div class="picker-trangle"></div>\
 			<input data-plugin>\
 			<div class="color-input-container">\
 				<form class="color-input color-hex color-hex-form">\
@@ -32,6 +33,7 @@ class ColorPicker {
 					<input type="submit" style="display:none">\
 				</form>\
 			</div>\
+			<div class="clear"></div>\
 		';
 		var element = document.createElement("div");
 		element.className = "color-picker";
@@ -42,51 +44,86 @@ class ColorPicker {
 			let	hex_form = element.querySelector(".color-hex-form")
 
 			this.plugin_ele = $("[data-plugin]", element);
+			var that = this;
 			this.plugin_ele.spectrum({
 				flat: true,
 				showButtons: false,
 				containerClassName: 'picker-container',
 				move: function(color) {
-					rgb_form.rgb_r.value = color.toRgb().r;
-					rgb_form.rgb_g.value = color.toRgb().g;
-					rgb_form.rgb_b.value = color.toRgb().b;
-
-					hex_form.hex.value = color.toHex();
+					color = color.toHex();
+					that.setColor(color, ["hex", "rgb"]);
+					that.list.setColor(color);
 				}
 			});
 		}
 
+		this.arrow = element.querySelector(".picker-trangle");
+		this.rgb_form = element.querySelector(".color-rgb-form");
+		this.hex_form = element.querySelector(".color-hex-form")
 		this.element = element;
 		this.listenEvent();
 	}
 
+	moveArrow(left) {
+		this.arrow.style.left = left + "px";
+	}
+
+	setList(list) {
+		this.list = list;
+	}
+
+	setColor(color, mode) {
+		var that = this;
+		const operation = {
+			rgb: function() {
+				var rgb;
+				if(color && color.match(/^rgb/)) {
+					rgb = color;
+				} else {
+					rgb = that.plugin_ele.spectrum("get").toRgb();
+				}
+				that.rgb_form.rgb_r.value = rgb.r;
+				that.rgb_form.rgb_g.value = rgb.g;
+				that.rgb_form.rgb_b.value = rgb.b;
+			},
+			hex: function() {
+				var hex;
+				if(color && color.match(/^#/)) {
+					hex = color;
+				} else {
+					hex = that.plugin_ele.spectrum("get").toHex();
+				}
+				that.hex_form.hex.value = hex;
+			},
+			painter: function() {
+				that.plugin_ele.spectrum("set", color);
+				//it shows that how bad the plugin is
+				that.plugin_ele.spectrum("show");
+			}
+		}
+
+		for(let i = 0; i < mode.length; i++) {
+			operation[mode[i]]();
+		}
+	}
+
 	listenEvent() {
 		var that = this;
-		var rgb_form = this.element.querySelector(".color-rgb-form");
-		rgb_form.addEventListener("submit", function(e) {
+		this.rgb_form.addEventListener("submit", function(e) {
 			e.preventDefault();
 			let ele = e.target;
 			let value = "rgb(" + ele.rgb_r.value + "," + ele.rgb_g.value + "," + ele.rgb_b.value + ")";
-			that.plugin_ele.spectrum("set", value);
-			//it shows that how bad the plugin is
-			that.plugin_ele.spectrum("show");
 
-			let hex = that.plugin_ele.spectrum("get").toHex();
-			hex_form.hex.value = hex;
+			that.setColor(value, ["painter", "hex"]);	
+			that.list.setColor(value);
 		});
 
-		var hex_form = this.element.querySelector(".color-hex-form")
-		hex_form.addEventListener("submit", function(e) {
+		this.hex_form.addEventListener("submit", function(e) {
 			e.preventDefault();
 			let ele = e.target;
-			that.plugin_ele.spectrum("set", ele.hex.value);
-			//it shows that how bad the plugin is
-			that.plugin_ele.spectrum("show");
 
-			let rgb = that.plugin_ele.spectrum("get").toRgb();
-			rgb_form.rgb_r.value = rgb.r;
-			rgb_form.rgb_g.value = rgb.g;
-			rgb_form.rgb_b.value = rgb.b;
+			that.setColor(ele.hex.value, ["painter", "rgb"]);	
+			that.list.setColor(ele.hex.value);
 		});
 	}
 }

@@ -3,7 +3,7 @@ class Panel {
 		var template = '\
 			<div class="panel">\
 				<div class="panel-header">\
-					<button type="button" class="panel-close">×</button>\
+					<button type="button" class="panel-close iconfont">&#xe601;</button>\
 					<h4 class="panel-title">{{title}}</h4>\
 				</div>\
 				<div class="panel-body">\
