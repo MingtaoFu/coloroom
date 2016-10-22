@@ -108,8 +108,12 @@
 	  window.card2 = card2
 		*/
 
-		document.body.appendChild(
-			new CardPanel({title:"添加色盘"}).element);
+		var cardPanel = new CardPanel({title:"添加色盘"});
+		document.body.appendChild(cardPanel.element);
+
+		document.querySelector(".add-btn").addEventListener("click", function() {
+			cardPanel.open();
+		});
 	};
 
 
@@ -630,7 +634,7 @@
 
 
 	// module
-	exports.push([module.id, ".panel-mask {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  -webkit-transition: opacity 0.15s linear;\n  -moz-transition: opacity 0.15s linear;\n  -o-transition: opacity 0.15s linear;\n  transition: opacity 0.15s linear; }\n  .panel-mask[close=true] {\n    opacity: 0; }\n    .panel-mask[close=true] .panel {\n      -webkit-transform: translate(0, -25%);\n      -moz-transform: translate(0, -25%);\n      -ms-transform: translate(0, -25%);\n      -o-transform: translate(0, -25%);\n      transform: translate(0, -25%); }\n  .panel-mask[close=false] {\n    opacity: 1; }\n\n.panel {\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 30px;\n  -webkit-transition: transform 0.3s ease-out;\n  -moz-transition: transform 0.3s ease-out;\n  -o-transition: transform 0.3s ease-out;\n  transition: transform 0.3s ease-out; }\n  .panel > .panel-header {\n    height: 60px;\n    background-color: #799999;\n    padding-left: 30px;\n    padding-right: 30px; }\n    .panel > .panel-header button {\n      outline: none;\n      height: 60px;\n      font-size: 18px;\n      color: #fff;\n      background-color: transparent;\n      opacity: 0.8; }\n      .panel > .panel-header button:hover {\n        opacity: 1; }\n    .panel > .panel-header h4 {\n      height: 60px;\n      line-height: 60px;\n      font-size: 18px;\n      color: #fff;\n      letter-spacing: 2px; }\n    .panel > .panel-header > .panel-close {\n      -webkit-appearance: none;\n      cursor: pointer;\n      border: 0;\n      float: right; }\n  .panel > .panel-body {\n    background-color: #fff; }\n\n.panel {\n  width: 600px; }\n  .panel .btn-container {\n    text-align: right; }\n  .panel .op-btn {\n    width: 67px;\n    height: 40px;\n    color: #fff;\n    -webkit-appearance: none;\n    border: none;\n    outline: none;\n    cursor: pointer;\n    -webkit-transition: background-color ease-in-out .15s;\n    -o-transition: background-color ease-in-out .15s;\n    transition: background-color ease-in-out .15s; }\n    .panel .op-btn.cancel {\n      background-color: #abd4d4;\n      margin-right: 10px; }\n      .panel .op-btn.cancel:hover {\n        background-color: #97baba; }\n    .panel .op-btn.confirm {\n      background-color: #fdc677; }\n      .panel .op-btn.confirm:hover {\n        background-color: #e3b16b; }\n  .panel .panel-body {\n    height: 325px; }\n  .panel .panel-body-half {\n    width: 50%;\n    height: 100%;\n    float: left;\n    padding: 20px 30px;\n    box-sizing: border-box; }\n    .panel .panel-body-half.right {\n      background-color: #f4f6f6; }\n\n.form-control {\n  font-size: 12px;\n  letter-spacing: 1px;\n  width: 100%;\n  margin-bottom: 10px; }\n  .form-control[name=title] {\n    height: 40px; }\n  .form-control[name=desc] {\n    height: 58px;\n    resize: none; }\n  .form-control[name=title], .form-control[name=desc] {\n    background-color: #f2f6fa;\n    color: #888;\n    -webkit-transition: background-color ease-in-out .15s;\n    -o-transition: background-color ease-in-out .15s;\n    transition: background-color ease-in-out .15s; }\n    .form-control[name=title]:focus, .form-control[name=desc]:focus {\n      background-color: #e1e6ef; }\n  .form-control[name=label] {\n    display: block;\n    height: 40px;\n    line-height: 40px;\n    color: #888; }\n\ninput.form-control, textarea.form-control {\n  border: none;\n  outline: none;\n  padding: 10px;\n  box-sizing: border-box; }\n", ""]);
+	exports.push([module.id, ".panel-mask {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  -webkit-transition: opacity 0.15s linear;\n  -moz-transition: opacity 0.15s linear;\n  -o-transition: opacity 0.15s linear;\n  transition: opacity 0.15s linear; }\n  .panel-mask[close=true] {\n    display: none;\n    opacity: 0; }\n    .panel-mask[close=true] .panel {\n      -webkit-transform: translate(0, -25%);\n      -moz-transform: translate(0, -25%);\n      -ms-transform: translate(0, -25%);\n      -o-transform: translate(0, -25%);\n      transform: translate(0, -25%); }\n  .panel-mask[close=false] {\n    opacity: 1; }\n\n.panel {\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 30px;\n  -webkit-transition: transform 0.3s ease-out;\n  -moz-transition: transform 0.3s ease-out;\n  -o-transition: transform 0.3s ease-out;\n  transition: transform 0.3s ease-out; }\n  .panel > .panel-header {\n    height: 60px;\n    background-color: #799999;\n    padding-left: 30px;\n    padding-right: 30px; }\n    .panel > .panel-header button {\n      outline: none;\n      height: 60px;\n      font-size: 18px;\n      color: #fff;\n      background-color: transparent;\n      opacity: 0.8; }\n      .panel > .panel-header button:hover {\n        opacity: 1; }\n    .panel > .panel-header h4 {\n      height: 60px;\n      line-height: 60px;\n      font-size: 18px;\n      color: #fff;\n      letter-spacing: 2px; }\n    .panel > .panel-header > .panel-close {\n      -webkit-appearance: none;\n      cursor: pointer;\n      border: 0;\n      float: right; }\n  .panel > .panel-body {\n    background-color: #fff; }\n\n.panel {\n  width: 600px; }\n  .panel .btn-container {\n    text-align: right; }\n  .panel .op-btn {\n    width: 67px;\n    height: 40px;\n    color: #fff;\n    -webkit-appearance: none;\n    border: none;\n    outline: none;\n    cursor: pointer;\n    -webkit-transition: background-color ease-in-out .15s;\n    -o-transition: background-color ease-in-out .15s;\n    transition: background-color ease-in-out .15s; }\n    .panel .op-btn.cancel {\n      background-color: #abd4d4;\n      margin-right: 10px; }\n      .panel .op-btn.cancel:hover {\n        background-color: #97baba; }\n    .panel .op-btn.confirm {\n      background-color: #fdc677; }\n      .panel .op-btn.confirm:hover {\n        background-color: #e3b16b; }\n  .panel .panel-body {\n    height: 325px; }\n  .panel .panel-body-half {\n    width: 50%;\n    height: 100%;\n    float: left;\n    padding: 20px 30px;\n    box-sizing: border-box; }\n    .panel .panel-body-half.right {\n      background-color: #f4f6f6; }\n\n.form-control {\n  font-size: 12px;\n  letter-spacing: 1px;\n  width: 100%;\n  margin-bottom: 10px; }\n  .form-control[name=title] {\n    height: 40px; }\n  .form-control[name=desc] {\n    height: 58px;\n    resize: none; }\n  .form-control[name=title], .form-control[name=desc] {\n    background-color: #f2f6fa;\n    color: #888;\n    -webkit-transition: background-color ease-in-out .15s;\n    -o-transition: background-color ease-in-out .15s;\n    transition: background-color ease-in-out .15s; }\n    .form-control[name=title]:focus, .form-control[name=desc]:focus {\n      background-color: #e1e6ef; }\n  .form-control[name=label] {\n    display: block;\n    height: 40px;\n    line-height: 40px;\n    color: #888; }\n\ninput.form-control, textarea.form-control {\n  border: none;\n  outline: none;\n  padding: 10px;\n  box-sizing: border-box; }\n", ""]);
 
 	// exports
 
@@ -1051,6 +1055,7 @@
 
 			var element = document.createElement('div');
 			element.className = "panel-mask";
+			element.setAttribute("close", "true");
 			element.innerHTML = template;
 			this.element = element;
 		}
@@ -1061,6 +1066,14 @@
 			setTimeout(function() {
 				that.element.style.display = "none";
 			}, 150);
+		}
+
+		open() {
+			var that = this;
+			this.element.style.display = "block";
+			setTimeout(function() {
+				that.element.setAttribute("close", "false");
+			}, 1);
 		}
 
 		listenEvent() {

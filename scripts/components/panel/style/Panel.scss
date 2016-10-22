@@ -12,6 +12,7 @@
 	@include transition(opacity .15s linear);
 
 	&[close=true] {
+		display: none;
 		opacity: 0;
 		.panel {
 			@include transform(translate(0, -25%));

@@ -26,6 +26,7 @@ class Panel {
 
 		var element = document.createElement('div');
 		element.className = "panel-mask";
+		element.setAttribute("close", "true");
 		element.innerHTML = template;
 		this.element = element;
 	}
@@ -36,6 +37,14 @@ class Panel {
 		setTimeout(function() {
 			that.element.style.display = "none";
 		}, 150);
+	}
+
+	open() {
+		var that = this;
+		this.element.style.display = "block";
+		setTimeout(function() {
+			that.element.setAttribute("close", "false");
+		}, 1);
 	}
 
 	listenEvent() {

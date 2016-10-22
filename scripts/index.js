@@ -62,6 +62,10 @@ window.onload = function () {
   window.card2 = card2
 	*/
 
-	document.body.appendChild(
-		new CardPanel({title:"添加色盘"}).element);
+	var cardPanel = new CardPanel({title:"添加色盘"});
+	document.body.appendChild(cardPanel.element);
+
+	document.querySelector(".add-btn").addEventListener("click", function() {
+		cardPanel.open();
+	});
 };
