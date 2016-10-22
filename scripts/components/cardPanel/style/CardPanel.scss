@@ -3,6 +3,41 @@
 .panel {
 	width: 600px;
 
+	.btn-container {
+		text-align: right;
+	}
+	.op-btn {
+		width: 67px;
+		height: 40px;
+		color: #fff;
+
+		-webkit-appearance: none;
+		border: none;
+		outline: none;
+		cursor: pointer;
+
+		-webkit-transition: background-color ease-in-out .15s;
+		-o-transition: background-color ease-in-out .15s;
+		transition: background-color ease-in-out .15s;
+
+		&.cancel {
+			background-color: #abd4d4;
+			margin-right: 10px;
+
+			&:hover {
+			background-color: #97baba;
+			}
+		}
+
+		&.confirm {
+			background-color: #fdc677;
+
+			&:hover {
+				background-color: #e3b16b;
+			}
+		}
+	}
+
 	.panel-body {
 		height: 325px;
 	}

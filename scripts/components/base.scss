@@ -1,3 +1,26 @@
+@mixin transformOrigin($value) {
+	-webkit-transform-origin: $value;
+	-moz-transform-origin: $value;
+	-ms-transform-origin: $value;
+	-o-transform-origin: $value;
+	transform-origin: $value;
+}
+
+@mixin transform($value) {
+	-webkit-transform: $value;
+	-moz-transform: $value;
+	-ms-transform: $value;
+	-o-transform: $value;
+	transform: $value;
+}
+
+@mixin transition($value...) {
+	-webkit-transition: $value;
+	-moz-transition: $value;
+	-o-transition: $value;
+	transition: $value;
+}
+
 %ellipsis-one{
   overflow: hidden;
   text-overflow: ellipsis;

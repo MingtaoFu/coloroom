@@ -1,5 +1,7 @@
+@import "../../base";
+
 .color-list {
-	height: 42px;
+	height: 40px;
 	.color-container {
 		display: inline-block;
 		position: relative;
@@ -15,13 +17,37 @@
 		outline: none;
 		cursor: pointer;
 
+		.color-del {
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			border-radius: 50%;
+			opacity: 0;
+			background-color: #d8d8d8;
+			color: #fff;
+			font-weight: bold;
+
+			@include transform(scale(0.4));
+			@include transformOrigin(right top);
+			@include transition(opacity ease-in-out .15s);
+		}
+
 		&.normal {
-			-webkit-transition: box-shadow ease-in-out .15s;
-			-moz-transition: box-shadow ease-in-out .15s;
-			-o-transition: box-shadow ease-in-out .15s;
+			position: relative;
+
+			@include transition(box-shadow ease-in-out .15s);
 
 			&:focus {
 				box-shadow: 0 0 0 1.5px #fff;
+			}
+
+			&:hover {
+				.color-del {
+					opacity: 1;
+				}
 			}
 		}
 
@@ -33,10 +59,7 @@
 			font-size: 24px;
 			box-sizing: border-box;
 
-			-webkit-transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s;
-			-moz-transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s;
-			-o-transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s;
-			transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s;
+			@include transition(background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s);
 
 			&:hover {
 				color: #fff;

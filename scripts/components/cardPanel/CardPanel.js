@@ -19,6 +19,10 @@ class CardPanel extends Panel {
 				</label>\
 				<color-list class="form-control"></color-list>\
 				<color-picker class="form-control"></color-picker>\
+				<div class="btn-container">\
+					<button class="op-btn cancel">取消</button\
+					><button class="op-btn confirm">确定</button>\
+				</div>\
 			</div>\
 		';
 

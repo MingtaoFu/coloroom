@@ -3,7 +3,13 @@
 
 body {
   background-color: #E8F1F5;
-  font-family: "微软雅黑", "Microsoft YaHei", "Microsoft YaHei UI", "Microsoft YaHei Regular", "黑体";
+  font-family: "微软雅黑", "Microsoft YaHei", "Microsoft YaHei UI", "Microsoft YaHei Regular", "黑体", Sans-serif;
+}
+
+button {
+	border: none;
+	outline: none;
+	-webkit-appearance: none;
 }
 
 #container{

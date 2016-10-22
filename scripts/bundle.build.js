@@ -144,7 +144,7 @@
 	exports.i(__webpack_require__(4), "");
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n@font-face {\n  font-family: 'iconfont';\n  src: url(\"//at.alicdn.com/t/font_1476972709_683237.eot\");\n  /* IE9*/\n  src: url(\"//at.alicdn.com/t/font_1476972709_683237.eot?#iefix\") format(\"embedded-opentype\"), url(\"//at.alicdn.com/t/font_1476972709_683237.woff\") format(\"woff\"), url(\"//at.alicdn.com/t/font_1476972709_683237.ttf\") format(\"truetype\"), url(\"//at.alicdn.com/t/font_1476972709_683237.svg#iconfont\") format(\"svg\");\n  /* iOS 4.1- */ }\n\n.iconfont {\n  font-family: \"iconfont\";\n  font-size: 16px; }\n\n.clear {\n  clear: both; }\n\nbody {\n  background-color: #E8F1F5;\n  font-family: \"\\5FAE\\8F6F\\96C5\\9ED1\", \"Microsoft YaHei\", \"Microsoft YaHei UI\", \"Microsoft YaHei Regular\", \"\\9ED1\\4F53\"; }\n\n#container {\n  max-width: 928px;\n  margin-left: auto;\n  margin-right: auto;\n  padding-top: 50px; }\n\n.header, .user {\n  height: 60px;\n  box-sizing: border-box;\n  border: 2px solid #fff; }\n\n.user {\n  width: 60px;\n  float: right; }\n\n.header {\n  float: left;\n  width: 282px;\n  padding: 15px 22px; }\n  .header .logo, .header .page {\n    display: inline-block;\n    height: 26px;\n    line-height: 26px;\n    vertical-align: top;\n    font-size: 20px; }\n  .header .page {\n    margin-left: 24px;\n    letter-spacing: 3px; }\n\n.logo span {\n  float: left;\n  margin-right: 3px; }\n  .logo span:nth-child(1) {\n    color: #a08e77; }\n  .logo span:nth-child(2) {\n    color: #f1af63; }\n  .logo span:nth-child(3) {\n    color: #90b774; }\n  .logo span:nth-child(4) {\n    color: #818181; }\n  .logo span:nth-child(5) {\n    color: #81c9d1; }\n  .logo span:nth-child(6) {\n    color: #799999; }\n  .logo span:nth-child(7) {\n    color: #bacc65; }\n  .logo span:nth-child(8) {\n    color: #65b8ba; }\n\n.body {\n  position: relative;\n  max-width: 810px;\n  margin-top: 20px;\n  margin-left: auto;\n  margin-right: auto; }\n  .body .add-btn {\n    position: absolute;\n    width: 60px;\n    height: 60px;\n    background-color: #dcccb4;\n    left: 100%;\n    top: 50%; }\n  .body .scroll-bar {\n    position: absolute;\n    width: 16px;\n    height: 40%;\n    margin-top: 10px;\n    left: 100%;\n    top: 0; }\n  .body .scroll-bar-track {\n    height: 100%;\n    border-radius: 8px;\n    background-color: #ddd; }\n  .body .scroll-bar-thumb {\n    position: relative;\n    height: 50px;\n    top: 20px;\n    border-radius: 8px;\n    background-color: #009999; }\n\n.scroll-obj-container {\n  overflow-y: hidden; }\n\n.scroll-obj {\n  position: relative; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n@font-face {\n  font-family: 'iconfont';\n  src: url(\"//at.alicdn.com/t/font_1476972709_683237.eot\");\n  /* IE9*/\n  src: url(\"//at.alicdn.com/t/font_1476972709_683237.eot?#iefix\") format(\"embedded-opentype\"), url(\"//at.alicdn.com/t/font_1476972709_683237.woff\") format(\"woff\"), url(\"//at.alicdn.com/t/font_1476972709_683237.ttf\") format(\"truetype\"), url(\"//at.alicdn.com/t/font_1476972709_683237.svg#iconfont\") format(\"svg\");\n  /* iOS 4.1- */ }\n\n.iconfont {\n  font-family: \"iconfont\";\n  font-size: 16px; }\n\n.clear {\n  clear: both; }\n\nbody {\n  background-color: #E8F1F5;\n  font-family: \"\\5FAE\\8F6F\\96C5\\9ED1\", \"Microsoft YaHei\", \"Microsoft YaHei UI\", \"Microsoft YaHei Regular\", \"\\9ED1\\4F53\", Sans-serif; }\n\nbutton {\n  border: none;\n  outline: none;\n  -webkit-appearance: none; }\n\n#container {\n  max-width: 928px;\n  margin-left: auto;\n  margin-right: auto;\n  padding-top: 50px; }\n\n.header, .user {\n  height: 60px;\n  box-sizing: border-box;\n  border: 2px solid #fff; }\n\n.user {\n  width: 60px;\n  float: right; }\n\n.header {\n  float: left;\n  width: 282px;\n  padding: 15px 22px; }\n  .header .logo, .header .page {\n    display: inline-block;\n    height: 26px;\n    line-height: 26px;\n    vertical-align: top;\n    font-size: 20px; }\n  .header .page {\n    margin-left: 24px;\n    letter-spacing: 3px; }\n\n.logo span {\n  float: left;\n  margin-right: 3px; }\n  .logo span:nth-child(1) {\n    color: #a08e77; }\n  .logo span:nth-child(2) {\n    color: #f1af63; }\n  .logo span:nth-child(3) {\n    color: #90b774; }\n  .logo span:nth-child(4) {\n    color: #818181; }\n  .logo span:nth-child(5) {\n    color: #81c9d1; }\n  .logo span:nth-child(6) {\n    color: #799999; }\n  .logo span:nth-child(7) {\n    color: #bacc65; }\n  .logo span:nth-child(8) {\n    color: #65b8ba; }\n\n.body {\n  position: relative;\n  max-width: 810px;\n  margin-top: 20px;\n  margin-left: auto;\n  margin-right: auto; }\n  .body .add-btn {\n    position: absolute;\n    width: 60px;\n    height: 60px;\n    background-color: #dcccb4;\n    left: 100%;\n    top: 50%; }\n  .body .scroll-bar {\n    position: absolute;\n    width: 16px;\n    height: 40%;\n    margin-top: 10px;\n    left: 100%;\n    top: 0; }\n  .body .scroll-bar-track {\n    height: 100%;\n    border-radius: 8px;\n    background-color: #ddd; }\n  .body .scroll-bar-thumb {\n    position: relative;\n    height: 50px;\n    top: 20px;\n    border-radius: 8px;\n    background-color: #009999; }\n\n.scroll-obj-container {\n  overflow-y: hidden; }\n\n.scroll-obj {\n  position: relative; }\n", ""]);
 
 	// exports
 
@@ -626,7 +626,7 @@
 
 
 	// module
-	exports.push([module.id, ".panel-mask {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.5); }\n\n.panel {\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 30px; }\n  .panel > .panel-header {\n    height: 60px;\n    background-color: #799999;\n    padding-left: 30px;\n    padding-right: 30px; }\n    .panel > .panel-header button {\n      outline: none;\n      height: 60px;\n      font-size: 18px;\n      color: #fff;\n      background-color: transparent;\n      opacity: 0.8; }\n      .panel > .panel-header button:hover {\n        opacity: 1; }\n    .panel > .panel-header h4 {\n      height: 60px;\n      line-height: 60px;\n      font-size: 18px;\n      color: #fff;\n      letter-spacing: 2px; }\n    .panel > .panel-header > .panel-close {\n      -webkit-appearance: none;\n      cursor: pointer;\n      border: 0;\n      float: right; }\n  .panel > .panel-body {\n    background-color: #fff; }\n\n.panel {\n  width: 600px; }\n  .panel .panel-body {\n    height: 325px; }\n  .panel .panel-body-half {\n    width: 50%;\n    height: 100%;\n    float: left;\n    padding: 20px 30px;\n    box-sizing: border-box; }\n    .panel .panel-body-half.right {\n      background-color: #f4f6f6; }\n\n.form-control {\n  font-size: 12px;\n  letter-spacing: 1px;\n  width: 100%;\n  margin-bottom: 10px; }\n  .form-control[name=title] {\n    height: 40px; }\n  .form-control[name=desc] {\n    height: 58px;\n    resize: none; }\n  .form-control[name=title], .form-control[name=desc] {\n    background-color: #f2f6fa;\n    color: #888;\n    -webkit-transition: background-color ease-in-out .15s;\n    -o-transition: background-color ease-in-out .15s;\n    transition: background-color ease-in-out .15s; }\n    .form-control[name=title]:focus, .form-control[name=desc]:focus {\n      background-color: #e1e6ef; }\n  .form-control[name=label] {\n    display: block;\n    height: 40px;\n    line-height: 40px;\n    color: #888; }\n\ninput.form-control, textarea.form-control {\n  border: none;\n  outline: none;\n  padding: 10px;\n  box-sizing: border-box; }\n", ""]);
+	exports.push([module.id, ".panel-mask {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.5); }\n\n.panel {\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 30px; }\n  .panel > .panel-header {\n    height: 60px;\n    background-color: #799999;\n    padding-left: 30px;\n    padding-right: 30px; }\n    .panel > .panel-header button {\n      outline: none;\n      height: 60px;\n      font-size: 18px;\n      color: #fff;\n      background-color: transparent;\n      opacity: 0.8; }\n      .panel > .panel-header button:hover {\n        opacity: 1; }\n    .panel > .panel-header h4 {\n      height: 60px;\n      line-height: 60px;\n      font-size: 18px;\n      color: #fff;\n      letter-spacing: 2px; }\n    .panel > .panel-header > .panel-close {\n      -webkit-appearance: none;\n      cursor: pointer;\n      border: 0;\n      float: right; }\n  .panel > .panel-body {\n    background-color: #fff; }\n\n.panel {\n  width: 600px; }\n  .panel .btn-container {\n    text-align: right; }\n  .panel .op-btn {\n    width: 67px;\n    height: 40px;\n    color: #fff;\n    -webkit-appearance: none;\n    border: none;\n    outline: none;\n    cursor: pointer;\n    -webkit-transition: background-color ease-in-out .15s;\n    -o-transition: background-color ease-in-out .15s;\n    transition: background-color ease-in-out .15s; }\n    .panel .op-btn.cancel {\n      background-color: #abd4d4;\n      margin-right: 10px; }\n      .panel .op-btn.cancel:hover {\n        background-color: #97baba; }\n    .panel .op-btn.confirm {\n      background-color: #fdc677; }\n      .panel .op-btn.confirm:hover {\n        background-color: #e3b16b; }\n  .panel .panel-body {\n    height: 325px; }\n  .panel .panel-body-half {\n    width: 50%;\n    height: 100%;\n    float: left;\n    padding: 20px 30px;\n    box-sizing: border-box; }\n    .panel .panel-body-half.right {\n      background-color: #f4f6f6; }\n\n.form-control {\n  font-size: 12px;\n  letter-spacing: 1px;\n  width: 100%;\n  margin-bottom: 10px; }\n  .form-control[name=title] {\n    height: 40px; }\n  .form-control[name=desc] {\n    height: 58px;\n    resize: none; }\n  .form-control[name=title], .form-control[name=desc] {\n    background-color: #f2f6fa;\n    color: #888;\n    -webkit-transition: background-color ease-in-out .15s;\n    -o-transition: background-color ease-in-out .15s;\n    transition: background-color ease-in-out .15s; }\n    .form-control[name=title]:focus, .form-control[name=desc]:focus {\n      background-color: #e1e6ef; }\n  .form-control[name=label] {\n    display: block;\n    height: 40px;\n    line-height: 40px;\n    color: #888; }\n\ninput.form-control, textarea.form-control {\n  border: none;\n  outline: none;\n  padding: 10px;\n  box-sizing: border-box; }\n", ""]);
 
 	// exports
 
@@ -941,6 +941,10 @@
 					</label>\
 					<color-list class="form-control"></color-list>\
 					<color-picker class="form-control"></color-picker>\
+					<div class="btn-container">\
+						<button class="op-btn cancel">取消</button\
+						><button class="op-btn confirm">确定</button>\
+					</div>\
 				</div>\
 			';
 
@@ -1058,6 +1062,33 @@
 			var that = this;
 			this.addBtn.addEventListener("click", function() {
 				var btn =  document.createElement("button");
+				btn.className = "color-item normal";
+				btn.style.backgroundColor = "#799999";
+
+
+				var delBtn = document.createElement("div");
+				delBtn.className = "color-del iconfont";
+				delBtn.innerHTML = "&#xe601;";
+				btn.appendChild(delBtn);
+
+				delBtn.addEventListener("click", function() {
+					var obj = btn.obj;
+					for(let i = 0; i < that.colors.length; i++) {
+						if(that.colors[i] === obj) {
+							btn.parentNode.removeChild(btn);
+							that.colors.splice(i, 1);
+
+							if(i > 0) {
+								that.colors[i-1].ele.focus();
+							}
+
+							if(that.colors.length === 3) {
+								that.addBtn.style.display = "inline-block";
+							}
+							break;
+						}
+					}
+				});
 
 				btn.addEventListener("focus", function() {
 					that.ctrl.setColor(this.obj.color.replace("#", ""), ["painter", "hex", "rgb"]);
@@ -1066,10 +1097,7 @@
 					var center = this.offsetLeft + this.offsetWidth / 2;
 					that.ctrl.moveArrow(center);
 				});
-
-				btn.className = "color-item normal";
-				btn.style.backgroundColor = "#799999";
-
+		
 				var obj = {
 					color: "#799999",
 					ele: btn
@@ -1131,7 +1159,7 @@
 
 
 	// module
-	exports.push([module.id, ".color-list {\n  height: 42px; }\n  .color-list .color-container {\n    display: inline-block;\n    position: relative; }\n  .color-list .color-item {\n    width: 40px;\n    height: 40px;\n    box-sizing: border-box;\n    margin-right: 10px;\n    border-radius: 50%;\n    border: none;\n    outline: none;\n    cursor: pointer; }\n    .color-list .color-item.normal {\n      -webkit-transition: box-shadow ease-in-out .15s;\n      -moz-transition: box-shadow ease-in-out .15s;\n      -o-transition: box-shadow ease-in-out .15s; }\n      .color-list .color-item.normal:focus {\n        box-shadow: 0 0 0 1.5px #fff; }\n    .color-list .color-item.color-add {\n      vertical-align: top;\n      color: #fdc677;\n      background-color: transparent;\n      border: 1px solid #d9dbdb;\n      font-size: 24px;\n      box-sizing: border-box;\n      -webkit-transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s;\n      -moz-transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s;\n      -o-transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s;\n      transition: background-color ease-in-out .15s, color ease-in-out .15s, border ease-in-out .15s; }\n      .color-list .color-item.color-add:hover {\n        color: #fff;\n        background-color: #fdc677;\n        border: none; }\n", ""]);
+	exports.push([module.id, ".color-list {\n  height: 40px; }\n  .color-list .color-container {\n    display: inline-block;\n    position: relative; }\n  .color-list .color-item {\n    width: 40px;\n    height: 40px;\n    box-sizing: border-box;\n    margin-right: 10px;\n    border-radius: 50%;\n    border: none;\n    outline: none;\n    cursor: pointer; }\n    .color-list .color-item .color-del {\n      position: absolute;\n      right: 0;\n      top: 0;\n      width: 30px;\n      height: 30px;\n      line-height: 30px;\n      border-radius: 50%;\n      opacity: 0;\n      background-color: #d8d8d8;\n      color: #fff;\n      font-weight: bold;\n      -webkit-transform: scale(0.4);\n      -moz-transform: scale(0.4);\n      -ms-transform: scale(0.4);\n      -o-transform: scale(0.4);\n      transform: scale(0.4);\n      -webkit-transform-origin: right top;\n      -moz-transform-origin: right top;\n      -ms-transform-origin: right top;\n      -o-transform-origin: right top;\n      transform-origin: right top;\n      -webkit-transition: opacity ease-in-out 0.15s;\n      -moz-transition: opacity ease-in-out 0.15s;\n      -o-transition: opacity ease-in-out 0.15s;\n      transition: opacity ease-in-out 0.15s; }\n    .color-list .color-item.normal {\n      position: relative;\n      -webkit-transition: box-shadow ease-in-out 0.15s;\n      -moz-transition: box-shadow ease-in-out 0.15s;\n      -o-transition: box-shadow ease-in-out 0.15s;\n      transition: box-shadow ease-in-out 0.15s; }\n      .color-list .color-item.normal:focus {\n        box-shadow: 0 0 0 1.5px #fff; }\n      .color-list .color-item.normal:hover .color-del {\n        opacity: 1; }\n    .color-list .color-item.color-add {\n      vertical-align: top;\n      color: #fdc677;\n      background-color: transparent;\n      border: 1px solid #d9dbdb;\n      font-size: 24px;\n      box-sizing: border-box;\n      -webkit-transition: background-color ease-in-out 0.15s, color ease-in-out 0.15s, border ease-in-out 0.15s;\n      -moz-transition: background-color ease-in-out 0.15s, color ease-in-out 0.15s, border ease-in-out 0.15s;\n      -o-transition: background-color ease-in-out 0.15s, color ease-in-out 0.15s, border ease-in-out 0.15s;\n      transition: background-color ease-in-out 0.15s, color ease-in-out 0.15s, border ease-in-out 0.15s; }\n      .color-list .color-item.color-add:hover {\n        color: #fff;\n        background-color: #fdc677;\n        border: none; }\n", ""]);
 
 	// exports
 

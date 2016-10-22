@@ -38,6 +38,33 @@ class ColorList {
 		var that = this;
 		this.addBtn.addEventListener("click", function() {
 			var btn =  document.createElement("button");
+			btn.className = "color-item normal";
+			btn.style.backgroundColor = "#799999";
+
+
+			var delBtn = document.createElement("div");
+			delBtn.className = "color-del iconfont";
+			delBtn.innerHTML = "&#xe601;";
+			btn.appendChild(delBtn);
+
+			delBtn.addEventListener("click", function() {
+				var obj = btn.obj;
+				for(let i = 0; i < that.colors.length; i++) {
+					if(that.colors[i] === obj) {
+						btn.parentNode.removeChild(btn);
+						that.colors.splice(i, 1);
+
+						if(i > 0) {
+							that.colors[i-1].ele.focus();
+						}
+
+						if(that.colors.length === 3) {
+							that.addBtn.style.display = "inline-block";
+						}
+						break;
+					}
+				}
+			});
 
 			btn.addEventListener("focus", function() {
 				that.ctrl.setColor(this.obj.color.replace("#", ""), ["painter", "hex", "rgb"]);
@@ -46,10 +73,7 @@ class ColorList {
 				var center = this.offsetLeft + this.offsetWidth / 2;
 				that.ctrl.moveArrow(center);
 			});
-
-			btn.className = "color-item normal";
-			btn.style.backgroundColor = "#799999";
-
+	
 			var obj = {
 				color: "#799999",
 				ele: btn
