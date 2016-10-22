@@ -68,7 +68,6 @@
 	  body.appendChild(scrollObject.element);
 
 	  utils.getJson("/items", {}, function (data) {
-			console.log(data);
 			for(let i = 0; i < data.length; i++) {
 				var the_data = data[i];
 				var param = {
@@ -1017,6 +1016,8 @@
 		}
 
 		post() {
+			var that = this;
+
 			var colors = this.colorList.getValue();
 			var title = this.title.value;
 			var desc = this.desc.value;
@@ -1031,6 +1032,7 @@
 					},
 					function(data) {
 						console.log(data)
+						that.close();
 					}
 				);
 			});

@@ -22,7 +22,6 @@ window.onload = function () {
   body.appendChild(scrollObject.element);
 
   utils.getJson("/items", {}, function (data) {
-		console.log(data);
 		for(let i = 0; i < data.length; i++) {
 			var the_data = data[i];
 			var param = {

@@ -70,6 +70,8 @@ class CardPanel extends Panel {
 	}
 
 	post() {
+		var that = this;
+
 		var colors = this.colorList.getValue();
 		var title = this.title.value;
 		var desc = this.desc.value;
@@ -84,6 +86,7 @@ class CardPanel extends Panel {
 				},
 				function(data) {
 					console.log(data)
+					that.close();
 				}
 			);
 		});
