@@ -22,21 +22,25 @@ window.onload = function () {
   body.appendChild(scrollObject.element);
 
   utils.getJson("/items", {}, function (data) {
-    var param = {
-      title: data.title,
-      time: "01.25",
-      text: data.description,
-      image: data.image,
-      color: []
-    };
+		console.log(data);
+		for(let i = 0; i < data.length; i++) {
+			var the_data = data[i];
+			var param = {
+				title: the_data.title,
+				time: "01.25",
+				text: the_data.description,
+				image: the_data.image,
+				color: []
+			};
 
-    for(var i = 0; i < data.colors.length; i++) {
-      param.color.push("#" + data.colors[i].hex_value);
-    }
+			for(let j = 0; j < the_data.colors.length; j++) {
+				param.color.push(the_data.colors[j].hex_value);
+			}
 
-    var card = new Card(param);
+			var card = new Card(param);
 
-    scrollObject.addItems([card])
+			scrollObject.addItems([card])
+		}
   });
 
 	/*

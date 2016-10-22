@@ -68,21 +68,25 @@
 	  body.appendChild(scrollObject.element);
 
 	  utils.getJson("/items", {}, function (data) {
-	    var param = {
-	      title: data.title,
-	      time: "01.25",
-	      text: data.description,
-	      image: data.image,
-	      color: []
-	    };
+			console.log(data);
+			for(let i = 0; i < data.length; i++) {
+				var the_data = data[i];
+				var param = {
+					title: the_data.title,
+					time: "01.25",
+					text: the_data.description,
+					image: the_data.image,
+					color: []
+				};
 
-	    for(var i = 0; i < data.colors.length; i++) {
-	      param.color.push("#" + data.colors[i].hex_value);
-	    }
+				for(let j = 0; j < the_data.colors.length; j++) {
+					param.color.push(the_data.colors[j].hex_value);
+				}
 
-	    var card = new Card(param);
+				var card = new Card(param);
 
-	    scrollObject.addItems([card])
+				scrollObject.addItems([card])
+			}
 	  });
 
 		/*
@@ -506,7 +510,7 @@
 
 
 	// module
-	exports.push([module.id, ".card > header > .title {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap; }\n\n.card > .body > .text {\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 2;\n  word-break: break-all;\n  overflow: hidden; }\n\n.card {\n  display: inline-block;\n  vertical-align: top;\n  width: 250px;\n  height: 228px;\n  margin: 10px;\n  padding: 10px 10px 0;\n  background-color: #fff;\n  box-sizing: border-box; }\n  .card.tra {\n    transition: all 1s; }\n  .card > header {\n    border-bottom: 1px solid #dde5e5;\n    height: 27px; }\n    .card > header > .title {\n      display: inline-block;\n      vertical-align: bottom;\n      width: 194px;\n      color: #799999;\n      font-size: 16px;\n      letter-spacing: 1.5px; }\n    .card > header > .time {\n      display: inline-block;\n      vertical-align: bottom;\n      width: 36px;\n      color: #799999;\n      opacity: 0.54;\n      font-size: 12px;\n      letter-spacing: 1.2px; }\n  .card > .body {\n    margin-top: 8px; }\n    .card > .body section {\n      display: inline-block;\n      vertical-align: top;\n      height: 102px; }\n      .card > .body section.left {\n        width: 135px;\n        margin-right: 5px; }\n      .card > .body section.right {\n        width: 90px; }\n    .card > .body > .text {\n      height: 32px;\n      overflow: hidden;\n      text-indent: 2em;\n      color: #999;\n      font-size: 12px;\n      letter-spacing: 1.2px;\n      margin-top: 10px;\n      margin-bottom: 8px; }\n    .card > .body .color-2-0, .card > .body .color-2-1 {\n      height: 51px; }\n    .card > .body .color-3-0 {\n      height: 24px; }\n    .card > .body .color-3-1 {\n      height: 34px; }\n    .card > .body .color-3-2 {\n      height: 44px; }\n    .card > .body .color-4-0 {\n      height: 20px; }\n    .card > .body .color-4-1 {\n      height: 23px; }\n    .card > .body .color-4-2 {\n      height: 27px; }\n    .card > .body .color-4-3 {\n      height: 32px; }\n  .card > footer {\n    height: 30px;\n    border-top: 1px solid #dde5e5;\n    box-sizing: border-box; }\n", ""]);
+	exports.push([module.id, ".card > header > .title {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap; }\n\n.card > .body > .text {\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 2;\n  word-break: break-all;\n  overflow: hidden; }\n\n.card {\n  display: inline-block;\n  vertical-align: top;\n  width: 250px;\n  height: 228px;\n  margin: 10px;\n  padding: 10px 10px 0;\n  background-color: #fff;\n  box-sizing: border-box; }\n  .card.tra {\n    transition: all 1s; }\n  .card > header {\n    border-bottom: 1px solid #dde5e5;\n    height: 27px; }\n    .card > header > .title {\n      display: inline-block;\n      vertical-align: bottom;\n      width: 194px;\n      color: #799999;\n      font-size: 16px;\n      letter-spacing: 1.5px; }\n    .card > header > .time {\n      display: inline-block;\n      vertical-align: bottom;\n      width: 36px;\n      color: #799999;\n      opacity: 0.54;\n      font-size: 12px;\n      letter-spacing: 1.2px; }\n  .card > .body {\n    margin-top: 8px; }\n    .card > .body section {\n      display: inline-block;\n      vertical-align: top;\n      height: 102px; }\n      .card > .body section.left {\n        width: 135px;\n        margin-right: 5px; }\n        .card > .body section.left img {\n          width: 100%;\n          height: 100%; }\n      .card > .body section.right {\n        width: 90px; }\n    .card > .body > .text {\n      height: 32px;\n      overflow: hidden;\n      text-indent: 2em;\n      color: #999;\n      font-size: 12px;\n      letter-spacing: 1.2px;\n      margin-top: 10px;\n      margin-bottom: 8px; }\n    .card > .body .color-2-0, .card > .body .color-2-1 {\n      height: 51px; }\n    .card > .body .color-3-0 {\n      height: 24px; }\n    .card > .body .color-3-1 {\n      height: 34px; }\n    .card > .body .color-3-2 {\n      height: 44px; }\n    .card > .body .color-4-0 {\n      height: 20px; }\n    .card > .body .color-4-1 {\n      height: 23px; }\n    .card > .body .color-4-2 {\n      height: 27px; }\n    .card > .body .color-4-3 {\n      height: 32px; }\n  .card > footer {\n    height: 30px;\n    border-top: 1px solid #dde5e5;\n    box-sizing: border-box; }\n", ""]);
 
 	// exports
 
@@ -626,7 +630,7 @@
 
 
 	// module
-	exports.push([module.id, ".panel-mask {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.5); }\n\n.panel {\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 30px; }\n  .panel > .panel-header {\n    height: 60px;\n    background-color: #799999;\n    padding-left: 30px;\n    padding-right: 30px; }\n    .panel > .panel-header button {\n      outline: none;\n      height: 60px;\n      font-size: 18px;\n      color: #fff;\n      background-color: transparent;\n      opacity: 0.8; }\n      .panel > .panel-header button:hover {\n        opacity: 1; }\n    .panel > .panel-header h4 {\n      height: 60px;\n      line-height: 60px;\n      font-size: 18px;\n      color: #fff;\n      letter-spacing: 2px; }\n    .panel > .panel-header > .panel-close {\n      -webkit-appearance: none;\n      cursor: pointer;\n      border: 0;\n      float: right; }\n  .panel > .panel-body {\n    background-color: #fff; }\n\n.panel {\n  width: 600px; }\n  .panel .btn-container {\n    text-align: right; }\n  .panel .op-btn {\n    width: 67px;\n    height: 40px;\n    color: #fff;\n    -webkit-appearance: none;\n    border: none;\n    outline: none;\n    cursor: pointer;\n    -webkit-transition: background-color ease-in-out .15s;\n    -o-transition: background-color ease-in-out .15s;\n    transition: background-color ease-in-out .15s; }\n    .panel .op-btn.cancel {\n      background-color: #abd4d4;\n      margin-right: 10px; }\n      .panel .op-btn.cancel:hover {\n        background-color: #97baba; }\n    .panel .op-btn.confirm {\n      background-color: #fdc677; }\n      .panel .op-btn.confirm:hover {\n        background-color: #e3b16b; }\n  .panel .panel-body {\n    height: 325px; }\n  .panel .panel-body-half {\n    width: 50%;\n    height: 100%;\n    float: left;\n    padding: 20px 30px;\n    box-sizing: border-box; }\n    .panel .panel-body-half.right {\n      background-color: #f4f6f6; }\n\n.form-control {\n  font-size: 12px;\n  letter-spacing: 1px;\n  width: 100%;\n  margin-bottom: 10px; }\n  .form-control[name=title] {\n    height: 40px; }\n  .form-control[name=desc] {\n    height: 58px;\n    resize: none; }\n  .form-control[name=title], .form-control[name=desc] {\n    background-color: #f2f6fa;\n    color: #888;\n    -webkit-transition: background-color ease-in-out .15s;\n    -o-transition: background-color ease-in-out .15s;\n    transition: background-color ease-in-out .15s; }\n    .form-control[name=title]:focus, .form-control[name=desc]:focus {\n      background-color: #e1e6ef; }\n  .form-control[name=label] {\n    display: block;\n    height: 40px;\n    line-height: 40px;\n    color: #888; }\n\ninput.form-control, textarea.form-control {\n  border: none;\n  outline: none;\n  padding: 10px;\n  box-sizing: border-box; }\n", ""]);
+	exports.push([module.id, ".panel-mask {\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.5);\n  -webkit-transition: opacity 0.15s linear;\n  -moz-transition: opacity 0.15s linear;\n  -o-transition: opacity 0.15s linear;\n  transition: opacity 0.15s linear; }\n  .panel-mask[close=true] {\n    opacity: 0; }\n    .panel-mask[close=true] .panel {\n      -webkit-transform: translate(0, -25%);\n      -moz-transform: translate(0, -25%);\n      -ms-transform: translate(0, -25%);\n      -o-transform: translate(0, -25%);\n      transform: translate(0, -25%); }\n  .panel-mask[close=false] {\n    opacity: 1; }\n\n.panel {\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 30px;\n  -webkit-transition: transform 0.3s ease-out;\n  -moz-transition: transform 0.3s ease-out;\n  -o-transition: transform 0.3s ease-out;\n  transition: transform 0.3s ease-out; }\n  .panel > .panel-header {\n    height: 60px;\n    background-color: #799999;\n    padding-left: 30px;\n    padding-right: 30px; }\n    .panel > .panel-header button {\n      outline: none;\n      height: 60px;\n      font-size: 18px;\n      color: #fff;\n      background-color: transparent;\n      opacity: 0.8; }\n      .panel > .panel-header button:hover {\n        opacity: 1; }\n    .panel > .panel-header h4 {\n      height: 60px;\n      line-height: 60px;\n      font-size: 18px;\n      color: #fff;\n      letter-spacing: 2px; }\n    .panel > .panel-header > .panel-close {\n      -webkit-appearance: none;\n      cursor: pointer;\n      border: 0;\n      float: right; }\n  .panel > .panel-body {\n    background-color: #fff; }\n\n.panel {\n  width: 600px; }\n  .panel .btn-container {\n    text-align: right; }\n  .panel .op-btn {\n    width: 67px;\n    height: 40px;\n    color: #fff;\n    -webkit-appearance: none;\n    border: none;\n    outline: none;\n    cursor: pointer;\n    -webkit-transition: background-color ease-in-out .15s;\n    -o-transition: background-color ease-in-out .15s;\n    transition: background-color ease-in-out .15s; }\n    .panel .op-btn.cancel {\n      background-color: #abd4d4;\n      margin-right: 10px; }\n      .panel .op-btn.cancel:hover {\n        background-color: #97baba; }\n    .panel .op-btn.confirm {\n      background-color: #fdc677; }\n      .panel .op-btn.confirm:hover {\n        background-color: #e3b16b; }\n  .panel .panel-body {\n    height: 325px; }\n  .panel .panel-body-half {\n    width: 50%;\n    height: 100%;\n    float: left;\n    padding: 20px 30px;\n    box-sizing: border-box; }\n    .panel .panel-body-half.right {\n      background-color: #f4f6f6; }\n\n.form-control {\n  font-size: 12px;\n  letter-spacing: 1px;\n  width: 100%;\n  margin-bottom: 10px; }\n  .form-control[name=title] {\n    height: 40px; }\n  .form-control[name=desc] {\n    height: 58px;\n    resize: none; }\n  .form-control[name=title], .form-control[name=desc] {\n    background-color: #f2f6fa;\n    color: #888;\n    -webkit-transition: background-color ease-in-out .15s;\n    -o-transition: background-color ease-in-out .15s;\n    transition: background-color ease-in-out .15s; }\n    .form-control[name=title]:focus, .form-control[name=desc]:focus {\n      background-color: #e1e6ef; }\n  .form-control[name=label] {\n    display: block;\n    height: 40px;\n    line-height: 40px;\n    color: #888; }\n\ninput.form-control, textarea.form-control {\n  border: none;\n  outline: none;\n  padding: 10px;\n  box-sizing: border-box; }\n", ""]);
 
 	// exports
 
@@ -924,6 +928,7 @@
 	var ColorList = __webpack_require__(19);
 	var ColorPicker = __webpack_require__(22);
 	var Cropper = __webpack_require__(29);
+	var utils = __webpack_require__(37);
 
 	class CardPanel extends Panel {
 		constructor(obj) {
@@ -956,6 +961,7 @@
 			var cropper = new Cropper();
 			var colorPicker = new ColorPicker();
 			var colorList = new ColorList();
+		
 			{
 				let ele = this.element.querySelector("cropper");
 				cropper.element.className += " " + ele.className;
@@ -972,6 +978,41 @@
 				colorList.setController(colorPicker);
 				ele.parentNode.replaceChild(colorList.element, ele);
 			}
+
+			this.cropper = cropper;
+			this.colorList = colorList;
+			this.title = this.element.querySelector("[name=title]");
+			this.desc = this.element.querySelector("[name=desc]");
+
+			this.listenEvent();
+		}
+
+		listenEvent() {
+			super.listenEvent();
+			var that = this;
+			this.element.querySelector(".confirm").addEventListener("click", function() {
+				that.post();
+			});
+		}
+
+		post() {
+			var colors = this.colorList.getValue();
+			var title = this.title.value;
+			var desc = this.desc.value;
+			this.cropper.getValue().then(function(data) {
+				utils.post(
+					"/item/", 
+					{
+						title: title,
+						desc: desc,
+						image: data,
+						colors: colors.toString()
+					},
+					function(data) {
+						console.log(data)
+					}
+				);
+			});
 		}
 	}
 
@@ -1013,6 +1054,21 @@
 			element.innerHTML = template;
 			this.element = element;
 		}
+
+		close() {
+			var that = this;
+			this.element.setAttribute("close", "true");
+			setTimeout(function() {
+				that.element.style.display = "none";
+			}, 150);
+		}
+
+		listenEvent() {
+			var that = this;
+			this.element.querySelector(".panel-close").addEventListener("click", function() {
+				that.close();
+			});
+		}
 	}
 
 	module.exports = Panel;
@@ -1048,13 +1104,22 @@
 			ctrl.setList(this);
 		}
 
+		getValue() {
+			var arr = [];
+			for(let i in this.colors) {
+				arr.push(this.colors[i].color);
+			}
+			return arr;
+		}
+
 		setColor(color) {
 			if(this.activeElement) {
 				if(!color.match(/(^rgb)|(^#)/)) {
 					color = "#" + color;
 				}
 				this.activeElement.style.backgroundColor = color;
-				this.activeElement.obj.color = color.replace("#", "");
+				this.activeElement.obj.color = color;
+				//this.activeElement.obj.color = color.replace("#", "");
 			}
 		}
 
@@ -1249,9 +1314,18 @@
 					var rgb;
 					if(color && color.match(/^rgb/)) {
 						rgb = color;
+						var reg = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)/;
+						reg.exec(rgb);
+
+						rgb = {
+							r: RegExp.$1,
+							g: RegExp.$2,
+							b: RegExp.$3
+						};
 					} else {
 						rgb = that.plugin_ele.spectrum("get").toRgb();
 					}
+
 					that.rgb_form.rgb_r.value = rgb.r;
 					that.rgb_form.rgb_g.value = rgb.g;
 					that.rgb_form.rgb_b.value = rgb.b;
@@ -1285,7 +1359,7 @@
 				let value = "rgb(" + ele.rgb_r.value + "," + ele.rgb_g.value + "," + ele.rgb_b.value + ")";
 
 				that.setColor(value, ["painter", "hex"]);	
-				that.list.setColor(value);
+				that.list.setColor(that.plugin_ele.spectrum("get").toHex());
 			});
 
 			this.hex_form.addEventListener("submit", function(e) {
@@ -13973,6 +14047,7 @@
 						height: 162
 					}
 				});
+				this.plugin = c;
 
 				let fileReader = new FileReader();
 				fileReader.onload = function(e) {
@@ -13990,6 +14065,10 @@
 					}
 				});
 			}
+		}
+
+		getValue() {
+			return this.plugin.result({type:"canvas"});
 		}
 	}
 
@@ -15552,16 +15631,47 @@
 	          var data = JSON.parse(xhr.responseText);
 	          callback(data);
 	        } else {
-	          callbackError();
+						if(callbackError) {
+							callbackError();
+						}
 	        }
 	      }
 	    };
 	    xhr.open('get', url);
 	    xhr.send(data);
 	  },
-	  post: function () {
-	  }
+		post: function (url, data, callback, callbackError) {
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function () {
+				if(xhr.readyState === 4) {
+					if(xhr.status >= 200 && xhr.status < 300|| xhr.status == 304) {
+						var data = JSON.parse(xhr.responseText);
+						callback(data);
+					} else {
+						if(callbackError) {
+							callbackError();
+						}
+					}
+				}
+			};
+			var formData = new FormData();
+			for(var i in data) {
+				formData.append(i, data[i]);
+			}
+			xhr.open('post', url);
+			xhr.send(formData);
+	  },
+		searilize: function(json) {
+			var str = "";
+			for(var i in json) {
+				str += i + "=" + json[i] + "&";
+			}
+			return encodeURI(str);
+		}
 	};
+
+	module.exports = utils;
+
 
 /***/ }
 /******/ ]);

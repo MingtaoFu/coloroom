@@ -51,6 +51,11 @@
       &.left{
         width: 135px;
         margin-right: 5px;
+
+				img {
+					width: 100%;
+					height: 100%;
+				}
       }
       &.right{
         width: 90px;

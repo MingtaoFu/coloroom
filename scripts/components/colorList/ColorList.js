@@ -24,13 +24,22 @@ class ColorList {
 		ctrl.setList(this);
 	}
 
+	getValue() {
+		var arr = [];
+		for(let i in this.colors) {
+			arr.push(this.colors[i].color);
+		}
+		return arr;
+	}
+
 	setColor(color) {
 		if(this.activeElement) {
 			if(!color.match(/(^rgb)|(^#)/)) {
 				color = "#" + color;
 			}
 			this.activeElement.style.backgroundColor = color;
-			this.activeElement.obj.color = color.replace("#", "");
+			this.activeElement.obj.color = color;
+			//this.activeElement.obj.color = color.replace("#", "");
 		}
 	}
 

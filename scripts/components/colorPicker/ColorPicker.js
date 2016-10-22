@@ -79,9 +79,18 @@ class ColorPicker {
 				var rgb;
 				if(color && color.match(/^rgb/)) {
 					rgb = color;
+					var reg = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)/;
+					reg.exec(rgb);
+
+					rgb = {
+						r: RegExp.$1,
+						g: RegExp.$2,
+						b: RegExp.$3
+					};
 				} else {
 					rgb = that.plugin_ele.spectrum("get").toRgb();
 				}
+
 				that.rgb_form.rgb_r.value = rgb.r;
 				that.rgb_form.rgb_g.value = rgb.g;
 				that.rgb_form.rgb_b.value = rgb.b;
@@ -115,7 +124,7 @@ class ColorPicker {
 			let value = "rgb(" + ele.rgb_r.value + "," + ele.rgb_g.value + "," + ele.rgb_b.value + ")";
 
 			that.setColor(value, ["painter", "hex"]);	
-			that.list.setColor(value);
+			that.list.setColor(that.plugin_ele.spectrum("get").toHex());
 		});
 
 		this.hex_form.addEventListener("submit", function(e) {

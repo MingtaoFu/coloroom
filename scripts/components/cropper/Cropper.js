@@ -31,6 +31,7 @@ class Cropper {
 					height: 162
 				}
 			});
+			this.plugin = c;
 
 			let fileReader = new FileReader();
 			fileReader.onload = function(e) {
@@ -48,6 +49,10 @@ class Cropper {
 				}
 			});
 		}
+	}
+
+	getValue() {
+		return this.plugin.result({type:"canvas"});
 	}
 }
 

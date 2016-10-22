@@ -29,6 +29,21 @@ class Panel {
 		element.innerHTML = template;
 		this.element = element;
 	}
+
+	close() {
+		var that = this;
+		this.element.setAttribute("close", "true");
+		setTimeout(function() {
+			that.element.style.display = "none";
+		}, 150);
+	}
+
+	listenEvent() {
+		var that = this;
+		this.element.querySelector(".panel-close").addEventListener("click", function() {
+			that.close();
+		});
+	}
 }
 
 module.exports = Panel;

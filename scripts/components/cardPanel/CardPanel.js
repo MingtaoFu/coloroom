@@ -2,6 +2,7 @@ var Panel = require("../panel/Panel");
 var ColorList = require("../colorList/ColorList");
 var ColorPicker = require("../colorPicker/ColorPicker");
 var Cropper = require("../cropper/Cropper");
+var utils = require("../../utils/utils");
 
 class CardPanel extends Panel {
 	constructor(obj) {
@@ -34,6 +35,7 @@ class CardPanel extends Panel {
 		var cropper = new Cropper();
 		var colorPicker = new ColorPicker();
 		var colorList = new ColorList();
+	
 		{
 			let ele = this.element.querySelector("cropper");
 			cropper.element.className += " " + ele.className;
@@ -50,6 +52,41 @@ class CardPanel extends Panel {
 			colorList.setController(colorPicker);
 			ele.parentNode.replaceChild(colorList.element, ele);
 		}
+
+		this.cropper = cropper;
+		this.colorList = colorList;
+		this.title = this.element.querySelector("[name=title]");
+		this.desc = this.element.querySelector("[name=desc]");
+
+		this.listenEvent();
+	}
+
+	listenEvent() {
+		super.listenEvent();
+		var that = this;
+		this.element.querySelector(".confirm").addEventListener("click", function() {
+			that.post();
+		});
+	}
+
+	post() {
+		var colors = this.colorList.getValue();
+		var title = this.title.value;
+		var desc = this.desc.value;
+		this.cropper.getValue().then(function(data) {
+			utils.post(
+				"/item/", 
+				{
+					title: title,
+					desc: desc,
+					image: data,
+					colors: colors.toString()
+				},
+				function(data) {
+					console.log(data)
+				}
+			);
+		});
 	}
 }
 
