@@ -1,3 +1,5 @@
+var utils = require("../../utils/utils");
+
 class Card {
   constructor(obj) {
     var template = '\
@@ -16,7 +18,10 @@ class Card {
           </div>\
           <p class="text">{{text}}</p>\
         </div>\
-        <footer></footer>\
+        <footer>\
+					<button class="iconfont icon-edit">&#xe602;</button>\
+					<button class="iconfont icon-delete">&#xe606;</button>\
+				</footer>\
       ';
 
     {
@@ -60,11 +65,13 @@ class Card {
 
     var element = document.createElement('div');
     element.className = "card";
+		this.id = obj.id;
     element.innerHTML = template;
     this.element = element;
     this.listenEvent();
   }
   listenEvent() {
+		/*
     this.element.draggable = true;
     this.element.addEventListener("dragstart", function (e) {
       var that = this;
@@ -77,6 +84,15 @@ class Card {
     this.element.addEventListener("dragenter", function (e) {
       console.log(e)
     });
+		*/
+		var that = this;
+		this.element.querySelector(".icon-delete").addEventListener("click", function() {
+			if(confirm("确定？") === true) {
+				utils.delete("/items/"+that.id, null, function() {
+					alert("成功");
+				});
+			}
+		});
   }
 }
 

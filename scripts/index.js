@@ -26,6 +26,7 @@ window.onload = function () {
 		for(let i = 0; i < data.length; i++) {
 			var the_data = data[i];
 			var param = {
+				id: the_data.id,
 				title: the_data.title,
 				time: "01.25",
 				text: the_data.description,

@@ -41,6 +41,26 @@ utils = {
 		xhr.open('post', url);
 		xhr.send(formData);
   },
+	delete: function (url, data, callback, callbackError) {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function () {
+			if(xhr.readyState === 4) {
+				if(xhr.status >= 200 && xhr.status < 300|| xhr.status == 304) {
+					callback();
+				} else {
+					if(callbackError) {
+						callbackError();
+					}
+				}
+			}
+		};
+		var formData = new FormData();
+		for(var i in data) {
+			formData.append(i, data[i]);
+		}
+		xhr.open('delete', url);
+		xhr.send(formData);
+	},
 	searilize: function(json) {
 		var str = "";
 		for(var i in json) {

@@ -72,6 +72,7 @@
 			for(let i = 0; i < data.length; i++) {
 				var the_data = data[i];
 				var param = {
+					id: the_data.id,
 					title: the_data.title,
 					time: "01.25",
 					text: the_data.description,
@@ -152,7 +153,7 @@
 	exports.i(__webpack_require__(4), "");
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n@font-face {\n  font-family: 'iconfont';\n  src: url(\"//at.alicdn.com/t/font_1476972709_683237.eot\");\n  /* IE9*/\n  src: url(\"//at.alicdn.com/t/font_1476972709_683237.eot?#iefix\") format(\"embedded-opentype\"), url(\"//at.alicdn.com/t/font_1476972709_683237.woff\") format(\"woff\"), url(\"//at.alicdn.com/t/font_1476972709_683237.ttf\") format(\"truetype\"), url(\"//at.alicdn.com/t/font_1476972709_683237.svg#iconfont\") format(\"svg\");\n  /* iOS 4.1- */ }\n\n.iconfont {\n  font-family: \"iconfont\";\n  font-size: 16px; }\n\n.clear {\n  clear: both; }\n\nbody {\n  background-color: #E8F1F5;\n  font-family: \"\\5FAE\\8F6F\\96C5\\9ED1\", \"Microsoft YaHei\", \"Microsoft YaHei UI\", \"Microsoft YaHei Regular\", \"\\9ED1\\4F53\", Sans-serif; }\n\nbutton {\n  border: none;\n  outline: none;\n  -webkit-appearance: none; }\n\n#container {\n  max-width: 928px;\n  margin-left: auto;\n  margin-right: auto;\n  padding-top: 50px; }\n\n.header, .user {\n  height: 60px;\n  box-sizing: border-box;\n  border: 2px solid #fff; }\n\n.user {\n  width: 60px;\n  float: right; }\n\n.header {\n  float: left;\n  width: 282px;\n  padding: 15px 22px; }\n  .header .logo, .header .page {\n    display: inline-block;\n    height: 26px;\n    line-height: 26px;\n    vertical-align: top;\n    font-size: 20px; }\n  .header .page {\n    margin-left: 24px;\n    letter-spacing: 3px; }\n\n.logo span {\n  float: left;\n  margin-right: 3px; }\n  .logo span:nth-child(1) {\n    color: #a08e77; }\n  .logo span:nth-child(2) {\n    color: #f1af63; }\n  .logo span:nth-child(3) {\n    color: #90b774; }\n  .logo span:nth-child(4) {\n    color: #818181; }\n  .logo span:nth-child(5) {\n    color: #81c9d1; }\n  .logo span:nth-child(6) {\n    color: #799999; }\n  .logo span:nth-child(7) {\n    color: #bacc65; }\n  .logo span:nth-child(8) {\n    color: #65b8ba; }\n\n.body {\n  position: relative;\n  max-width: 810px;\n  margin-top: 20px;\n  margin-left: auto;\n  margin-right: auto; }\n  .body .add-btn {\n    position: absolute;\n    width: 60px;\n    height: 60px;\n    background-color: #dcccb4;\n    left: 100%;\n    top: 50%; }\n  .body .scroll-bar {\n    position: absolute;\n    width: 16px;\n    height: 40%;\n    margin-top: 10px;\n    left: 100%;\n    top: 0; }\n  .body .scroll-bar-track {\n    height: 100%;\n    border-radius: 8px;\n    background-color: #ddd; }\n  .body .scroll-bar-thumb {\n    position: relative;\n    height: 50px;\n    top: 20px;\n    border-radius: 8px;\n    background-color: #009999; }\n\n.scroll-obj-container {\n  overflow-y: hidden; }\n\n.scroll-obj {\n  position: relative; }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n@font-face {\n  font-family: 'iconfont';\n  src: url(\"//at.alicdn.com/t/font_1477147045_934508.eot\");\n  /* IE9*/\n  src: url(\"//at.alicdn.com/t/font_1477147045_934508.eot?#iefix\") format(\"embedded-opentype\"), url(\"//at.alicdn.com/t/font_1477147045_934508.woff\") format(\"woff\"), url(\"//at.alicdn.com/t/font_1477147045_934508.ttf\") format(\"truetype\"), url(\"//at.alicdn.com/t/font_1477147045_934508.svg#iconfont\") format(\"svg\");\n  /* iOS 4.1- */ }\n\n.iconfont {\n  font-family: \"iconfont\";\n  font-size: 16px; }\n\n.clear {\n  clear: both; }\n\nbody {\n  background-color: #E8F1F5;\n  font-family: \"\\5FAE\\8F6F\\96C5\\9ED1\", \"Microsoft YaHei\", \"Microsoft YaHei UI\", \"Microsoft YaHei Regular\", \"\\9ED1\\4F53\", Sans-serif; }\n\nbutton {\n  border: none;\n  outline: none;\n  -webkit-appearance: none; }\n\n#container {\n  max-width: 928px;\n  margin-left: auto;\n  margin-right: auto;\n  padding-top: 50px; }\n\n.header, .user {\n  height: 60px;\n  box-sizing: border-box;\n  border: 2px solid #fff; }\n\n.user {\n  width: 60px;\n  float: right; }\n\n.header {\n  float: left;\n  width: 282px;\n  padding: 15px 22px; }\n  .header .logo, .header .page {\n    display: inline-block;\n    height: 26px;\n    line-height: 26px;\n    vertical-align: top;\n    font-size: 20px; }\n  .header .page {\n    margin-left: 24px;\n    letter-spacing: 3px; }\n\n.logo span {\n  float: left;\n  margin-right: 3px; }\n  .logo span:nth-child(1) {\n    color: #a08e77; }\n  .logo span:nth-child(2) {\n    color: #f1af63; }\n  .logo span:nth-child(3) {\n    color: #90b774; }\n  .logo span:nth-child(4) {\n    color: #818181; }\n  .logo span:nth-child(5) {\n    color: #81c9d1; }\n  .logo span:nth-child(6) {\n    color: #799999; }\n  .logo span:nth-child(7) {\n    color: #bacc65; }\n  .logo span:nth-child(8) {\n    color: #65b8ba; }\n\n.body {\n  position: relative;\n  max-width: 810px;\n  margin-top: 20px;\n  margin-left: auto;\n  margin-right: auto; }\n  .body .add-btn {\n    position: absolute;\n    width: 60px;\n    height: 60px;\n    font-size: 24px;\n    background-color: #dcccb4;\n    color: #fff;\n    cursor: pointer;\n    left: 100%;\n    top: 50%; }\n  .body .scroll-bar {\n    position: absolute;\n    width: 16px;\n    height: 40%;\n    margin-top: 10px;\n    left: 100%;\n    top: 0; }\n  .body .scroll-bar-track {\n    height: 100%;\n    border-radius: 8px;\n    background-color: #ddd; }\n  .body .scroll-bar-thumb {\n    position: relative;\n    height: 50px;\n    top: 20px;\n    border-radius: 8px;\n    background-color: #009999; }\n\n.scroll-obj-container {\n  overflow-y: hidden; }\n\n.scroll-obj {\n  position: relative; }\n", ""]);
 
 	// exports
 
@@ -514,7 +515,7 @@
 
 
 	// module
-	exports.push([module.id, ".card > header > .title {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap; }\n\n.card > .body > .text {\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 2;\n  word-break: break-all;\n  overflow: hidden; }\n\n.card {\n  display: inline-block;\n  vertical-align: top;\n  width: 250px;\n  height: 228px;\n  margin: 10px;\n  padding: 10px 10px 0;\n  background-color: #fff;\n  box-sizing: border-box; }\n  .card.tra {\n    transition: all 1s; }\n  .card > header {\n    border-bottom: 1px solid #dde5e5;\n    height: 27px; }\n    .card > header > .title {\n      display: inline-block;\n      vertical-align: bottom;\n      width: 194px;\n      color: #799999;\n      font-size: 16px;\n      letter-spacing: 1.5px; }\n    .card > header > .time {\n      display: inline-block;\n      vertical-align: bottom;\n      width: 36px;\n      color: #799999;\n      opacity: 0.54;\n      font-size: 12px;\n      letter-spacing: 1.2px; }\n  .card > .body {\n    margin-top: 8px; }\n    .card > .body section {\n      display: inline-block;\n      vertical-align: top;\n      height: 102px; }\n      .card > .body section.left {\n        width: 135px;\n        margin-right: 5px; }\n        .card > .body section.left img {\n          width: 100%;\n          height: 100%; }\n      .card > .body section.right {\n        width: 90px; }\n    .card > .body > .text {\n      height: 32px;\n      overflow: hidden;\n      text-indent: 2em;\n      color: #999;\n      font-size: 12px;\n      letter-spacing: 1.2px;\n      margin-top: 10px;\n      margin-bottom: 8px; }\n    .card > .body .color-2-0, .card > .body .color-2-1 {\n      height: 51px; }\n    .card > .body .color-3-0 {\n      height: 24px; }\n    .card > .body .color-3-1 {\n      height: 34px; }\n    .card > .body .color-3-2 {\n      height: 44px; }\n    .card > .body .color-4-0 {\n      height: 20px; }\n    .card > .body .color-4-1 {\n      height: 23px; }\n    .card > .body .color-4-2 {\n      height: 27px; }\n    .card > .body .color-4-3 {\n      height: 32px; }\n  .card > footer {\n    height: 30px;\n    border-top: 1px solid #dde5e5;\n    box-sizing: border-box; }\n", ""]);
+	exports.push([module.id, ".card > header > .title {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap; }\n\n.card > .body > .text {\n  display: -webkit-box;\n  -webkit-box-orient: vertical;\n  -webkit-line-clamp: 2;\n  word-break: break-all;\n  overflow: hidden; }\n\n.card {\n  display: inline-block;\n  vertical-align: top;\n  width: 250px;\n  height: 228px;\n  margin: 10px;\n  padding: 10px 10px 0;\n  background-color: #fff;\n  box-sizing: border-box; }\n  .card.tra {\n    transition: all 1s; }\n  .card > header {\n    border-bottom: 1px solid #dde5e5;\n    height: 27px; }\n    .card > header > .title {\n      display: inline-block;\n      vertical-align: bottom;\n      width: 194px;\n      color: #799999;\n      font-size: 16px;\n      letter-spacing: 1.5px; }\n    .card > header > .time {\n      display: inline-block;\n      vertical-align: bottom;\n      width: 36px;\n      color: #799999;\n      opacity: 0.54;\n      font-size: 12px;\n      letter-spacing: 1.2px; }\n  .card > .body {\n    margin-top: 8px; }\n    .card > .body section {\n      display: inline-block;\n      vertical-align: top;\n      height: 102px; }\n      .card > .body section.left {\n        width: 135px;\n        margin-right: 5px; }\n        .card > .body section.left img {\n          width: 100%;\n          height: 100%; }\n      .card > .body section.right {\n        width: 90px; }\n    .card > .body > .text {\n      height: 32px;\n      overflow: hidden;\n      text-indent: 2em;\n      color: #999;\n      font-size: 12px;\n      letter-spacing: 1.2px;\n      margin-top: 10px;\n      margin-bottom: 8px; }\n    .card > .body .color-2-0, .card > .body .color-2-1 {\n      height: 51px; }\n    .card > .body .color-3-0 {\n      height: 24px; }\n    .card > .body .color-3-1 {\n      height: 34px; }\n    .card > .body .color-3-2 {\n      height: 44px; }\n    .card > .body .color-4-0 {\n      height: 20px; }\n    .card > .body .color-4-1 {\n      height: 23px; }\n    .card > .body .color-4-2 {\n      height: 27px; }\n    .card > .body .color-4-3 {\n      height: 32px; }\n  .card > footer {\n    position: relative;\n    height: 30px;\n    border-top: 1px solid #dde5e5;\n    box-sizing: border-box; }\n    .card > footer button {\n      float: right;\n      height: 100%;\n      background-color: transparent;\n      color: #799999;\n      font-size: 14px; }\n", ""]);
 
 	// exports
 
@@ -641,7 +642,9 @@
 
 /***/ },
 /* 14 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
+
+	var utils = __webpack_require__(37);
 
 	class Card {
 	  constructor(obj) {
@@ -661,7 +664,10 @@
 	          </div>\
 	          <p class="text">{{text}}</p>\
 	        </div>\
-	        <footer></footer>\
+	        <footer>\
+						<button class="iconfont icon-edit">&#xe602;</button>\
+						<button class="iconfont icon-delete">&#xe606;</button>\
+					</footer>\
 	      ';
 
 	    {
@@ -705,11 +711,13 @@
 
 	    var element = document.createElement('div');
 	    element.className = "card";
+			this.id = obj.id;
 	    element.innerHTML = template;
 	    this.element = element;
 	    this.listenEvent();
 	  }
 	  listenEvent() {
+			/*
 	    this.element.draggable = true;
 	    this.element.addEventListener("dragstart", function (e) {
 	      var that = this;
@@ -722,6 +730,15 @@
 	    this.element.addEventListener("dragenter", function (e) {
 	      console.log(e)
 	    });
+			*/
+			var that = this;
+			this.element.querySelector(".icon-delete").addEventListener("click", function() {
+				if(confirm("确定？") === true) {
+					utils.delete("/items/"+that.id, null, function() {
+						alert("成功");
+					});
+				}
+			});
 	  }
 	}
 
@@ -15674,6 +15691,26 @@
 			xhr.open('post', url);
 			xhr.send(formData);
 	  },
+		delete: function (url, data, callback, callbackError) {
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function () {
+				if(xhr.readyState === 4) {
+					if(xhr.status >= 200 && xhr.status < 300|| xhr.status == 304) {
+						callback();
+					} else {
+						if(callbackError) {
+							callbackError();
+						}
+					}
+				}
+			};
+			var formData = new FormData();
+			for(var i in data) {
+				formData.append(i, data[i]);
+			}
+			xhr.open('delete', url);
+			xhr.send(formData);
+		},
 		searilize: function(json) {
 			var str = "";
 			for(var i in json) {
